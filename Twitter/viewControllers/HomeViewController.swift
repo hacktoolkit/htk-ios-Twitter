@@ -18,12 +18,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.getTimelineForUsername(
-            "jontsai",
+        TwitterClient.sharedInstance.getHomeTimelineWithParams(
+            nil,
             callback: {
-                (tweets: [Tweet]) -> Void in
-                self.tweets = tweets
-                self.tableView.reloadData()
+                (tweets: [Tweet]?, error: NSError?) -> Void in
+                if tweets != nil {
+                    self.tweets = tweets!
+                    self.tableView.reloadData()
+                }
             }
         )
     }
@@ -51,6 +53,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         println("pressed on a tweet")
     }
 
+    @IBAction func onLogout(sender: AnyObject) {
+        TwitterUser.currentUser?.logout()
+    }
     /*
     // MARK: - Navigation
 
