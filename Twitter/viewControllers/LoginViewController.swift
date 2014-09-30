@@ -16,7 +16,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        loginButton.
+        self.loginButton.layer.borderWidth = 2
+        self.loginButton.layer.borderColor = UIColor.blackColor().CGColor
+        self.loginButton.layer.cornerRadius = 5
+        self.loginButton.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
