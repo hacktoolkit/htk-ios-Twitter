@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56C3221919DB535200E3FD6E /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */; };
+		56C3221B19DB535F00E3FD6E /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */; };
 		56C450AE19DAA29700551220 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C450AD19DAA29700551220 /* LoginViewController.swift */; };
 		56C4512E19DAB7E500551220 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4511119DAB7E500551220 /* DataStructures.swift */; };
 		56C4512F19DAB7E500551220 /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4511419DAB7E500551220 /* GitHubClient.swift */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		2533AC282C45176BB13A0F94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeTweetViewController.swift; path = viewControllers/ComposeTweetViewController.swift; sourceTree = "<group>"; };
+		56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetDetailsViewController.swift; path = viewControllers/TweetDetailsViewController.swift; sourceTree = "<group>"; };
 		56C450AD19DAA29700551220 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = viewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		56C4511119DAB7E500551220 /* DataStructures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
 		56C4511419DAB7E500551220 /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 			children = (
 				56E082DE19D5FD0B0099A356 /* HomeViewController.swift */,
 				56C450AD19DAA29700551220 /* LoginViewController.swift */,
+				56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */,
+				56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -455,10 +461,12 @@
 				56C4513419DAB7E500551220 /* GitHubUser.swift in Sources */,
 				56C4513E19DAB7E500551220 /* HTKImageUtils.swift in Sources */,
 				56C4513319DAB7E500551220 /* GitHubResource.swift in Sources */,
+				56C3221919DB535200E3FD6E /* ComposeTweetViewController.swift in Sources */,
 				56C4513A19DAB7E500551220 /* YelpBusinessResult.swift in Sources */,
 				56C4513619DAB7E500551220 /* RottenTomatoesClient.swift in Sources */,
 				56C4513119DAB7E500551220 /* GitHubRepository.swift in Sources */,
 				56C4513919DAB7E500551220 /* TwitterClient.swift in Sources */,
+				56C3221B19DB535F00E3FD6E /* TweetDetailsViewController.swift in Sources */,
 				56C4513719DAB7E500551220 /* Tweet.swift in Sources */,
 				56C4513519DAB7E500551220 /* RottenTomatoesMovie.swift in Sources */,
 				56C4512E19DAB7E500551220 /* DataStructures.swift in Sources */,

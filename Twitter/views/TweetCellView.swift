@@ -10,11 +10,17 @@ import UIKit
 
 class TweetCellView: UITableViewCell {
 
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var userThumbnailImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userScreennameLabel: UILabel!
+    @IBOutlet weak var shortTimestampLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
 
     var tweet: Tweet! {
         willSet(newTweet) {
-            self.textLabel?.text = newTweet.text
+            self.userNameLabel?.text = newTweet.user!.name!
+            self.userScreennameLabel?.text = "@\(newTweet.user!.screenname!)"
+            self.tweetTextLabel?.text = newTweet.text
         }
 
         didSet(oldTweet) {
