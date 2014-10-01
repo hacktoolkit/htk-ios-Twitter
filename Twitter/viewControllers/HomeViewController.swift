@@ -12,25 +12,81 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var tableView: UITableView!
 
+    var refreshControl: UIRefreshControl?
+
+    let PAGE_SIZE = 20
+    let INFINITE_SCROLL_THRESHOLD = 5
+    var IS_LOADING = false
+    var OLDEST_TWEET: Tweet?
+
     var tweets = [Tweet]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        TwitterClient.sharedInstance.getTimelineForUsername(
-            "jontsai",
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        // auto layout stuff
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 160;
+
+        // pull to refresh
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl?.addTarget(self, action: "tableRefreshCallback:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView!.addSubview(refreshControl!)
+
+        // data
+        getHomeTweets()
+    }
+
+    func tableRefreshCallback(refreshControl: UIRefreshControl) {
+        getHomeTweets(loadMore: false, resetData: true)
+    }
+
+    func getHomeTweets(loadMore: Bool = false, resetData: Bool = false) {
+        var params = [
+            "count" : PAGE_SIZE,
+        ]
+        if (loadMore && self.OLDEST_TWEET != nil) {
+            params["max_id"] = self.OLDEST_TWEET!.id
+        }
+        self.IS_LOADING = true
+        var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        TwitterClient.sharedInstance.getHomeTimelineWithParams(
+            params,
             callback: {
-                (tweets: [Tweet]) -> Void in
-                self.tweets = tweets
-                self.tableView.reloadData()
+                (tweets: [Tweet]?, error: NSError?) -> Void in
+                self.IS_LOADING = false
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.refreshControl?.endRefreshing()
+                if tweets != nil {
+                    if resetData {
+                        // wipe/refresh tweets in the case of pull to refresh
+                        self.tweets = tweets!
+                    } else {
+                        // keep extending in the case of infinite scroll
+                        self.tweets.extend(tweets!)
+                    }
+                    self.OLDEST_TWEET = self.tweets[self.tweets.count - 1]
+                    self.tableView.reloadData()
+                }
             }
         )
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func triggerInfiniteScroll(atRow: Int) {
+        if !self.IS_LOADING &&
+            self.tweets.count > INFINITE_SCROLL_THRESHOLD &&
+            atRow + INFINITE_SCROLL_THRESHOLD >= self.tweets.count {
+                getHomeTweets(loadMore: true)
+        }
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +95,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        triggerInfiniteScroll(indexPath.row)
         var tweetCell = self.tableView.dequeueReusableCellWithIdentifier("TweetCell") as TweetCellView
         let tweet = self.tweets[indexPath.row]
         tweetCell.tweet = tweet
@@ -46,11 +103,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return tweetCell
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var tweet = self.tweets[indexPath.row]
-        println("pressed on a tweet")
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
+        var tweet = self.tweets[indexPath.row]
+        var tweetDetailsViewController = TweetDetailsViewController(nibName: nil, bundle: nil)
+        tweetDetailsViewController.tweet = tweet
+        self.navigationController?.pushViewController(tweetDetailsViewController, animated: true)
+    }
+
+    @IBAction func onLogout(sender: AnyObject) {
+        TwitterUser.currentUser?.logout()
+    }
     /*
     // MARK: - Navigation
 

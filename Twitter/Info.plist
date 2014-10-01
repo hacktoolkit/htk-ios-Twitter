@@ -18,14 +18,23 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.hacktoolkit.Twitter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>htktwitter</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>TWITTER_API_CONSUMER_KEY</key>
 	<string>$(TWITTER_API_CONSUMER_KEY)</string>
 	<key>TWITTER_API_CONSUMER_SECRET</key>
@@ -34,6 +43,10 @@
 	<string>$(TWITTER_API_TOKEN)</string>
 	<key>TWITTER_API_TOKEN_SECRET</key>
 	<string>$(TWITTER_API_TOKEN_SECRET)</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

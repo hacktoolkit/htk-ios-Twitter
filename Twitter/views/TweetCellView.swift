@@ -10,11 +10,31 @@ import UIKit
 
 class TweetCellView: UITableViewCell {
 
-    @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var retweetView: UIView!
+    @IBOutlet weak var retweeterLabel: UILabel!
+    @IBOutlet weak var retweetViewHeightConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var userThumbnailImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userScreennameLabel: UILabel!
+    @IBOutlet weak var shortTimestampLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
 
     var tweet: Tweet! {
         willSet(newTweet) {
-            self.textLabel?.text = newTweet.text
+            var sourceTweet: Tweet
+            if newTweet.retweetSource != nil {
+                sourceTweet = newTweet.retweetSource!
+                self.retweeterLabel.text = "\(newTweet.user!.name!) retweeted"
+            } else {
+                // it wasn't retweeted, hide it
+                self.retweetViewHeightConstraint.constant = 0
+                sourceTweet = newTweet
+            }
+            HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
+            self.userNameLabel?.text = sourceTweet.user?.name!
+            self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
+            self.tweetTextLabel?.text = sourceTweet.text
         }
 
         didSet(oldTweet) {
