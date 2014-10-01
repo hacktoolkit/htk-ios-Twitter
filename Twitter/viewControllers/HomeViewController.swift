@@ -12,6 +12,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var tableView: UITableView!
 
+    var refreshControl: UIRefreshControl?
+
     let PAGE_SIZE = 20
     let INFINITE_SCROLL_THRESHOLD = 5
     var IS_LOADING = false
@@ -25,12 +27,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+        // auto layout stuff
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160;
+
+        // pull to refresh
+        self.refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refreshControl?.addTarget(self, action: "tableRefreshCallback:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView!.addSubview(refreshControl!)
+
+        // data
         getHomeTweets()
     }
 
-    func getHomeTweets(loadMore: Bool = false) {
+    func tableRefreshCallback(refreshControl: UIRefreshControl) {
+        getHomeTweets(loadMore: false, resetData: true)
+    }
+
+    func getHomeTweets(loadMore: Bool = false, resetData: Bool = false) {
         var params = [
             "count" : PAGE_SIZE,
         ]
@@ -38,13 +54,22 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             params["max_id"] = self.OLDEST_TWEET!.id
         }
         self.IS_LOADING = true
+        var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         TwitterClient.sharedInstance.getHomeTimelineWithParams(
             params,
             callback: {
                 (tweets: [Tweet]?, error: NSError?) -> Void in
                 self.IS_LOADING = false
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.refreshControl?.endRefreshing()
                 if tweets != nil {
-                    self.tweets.extend(tweets!)
+                    if resetData {
+                        // wipe/refresh tweets in the case of pull to refresh
+                        self.tweets = tweets!
+                    } else {
+                        // keep extending in the case of infinite scroll
+                        self.tweets.extend(tweets!)
+                    }
                     self.OLDEST_TWEET = self.tweets[self.tweets.count - 1]
                     self.tableView.reloadData()
                 }
@@ -76,6 +101,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tweetCell.tweet = tweet
 
         return tweetCell
+    }
+
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
