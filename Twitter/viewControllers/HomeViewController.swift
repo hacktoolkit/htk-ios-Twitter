@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 100;
+        self.tableView.estimatedRowHeight = 160;
         getHomeTweets()
     }
 
@@ -79,6 +79,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
+
         var tweet = self.tweets[indexPath.row]
         var tweetDetailsViewController = TweetDetailsViewController(nibName: nil, bundle: nil)
         tweetDetailsViewController.tweet = tweet
