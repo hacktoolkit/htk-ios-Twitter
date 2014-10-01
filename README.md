@@ -25,6 +25,8 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ## Features
 
+Time spent: 17 hours
+
 '''Core User Stories'''
 
 * [x] User can sign in using OAuth login flow

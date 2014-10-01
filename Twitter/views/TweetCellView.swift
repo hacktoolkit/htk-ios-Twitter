@@ -22,16 +22,19 @@ class TweetCellView: UITableViewCell {
 
     var tweet: Tweet! {
         willSet(newTweet) {
-            if newTweet.retweeted! {
+            var sourceTweet: Tweet
+            if newTweet.retweetSource != nil {
+                sourceTweet = newTweet.retweetSource!
                 self.retweeterLabel.text = "\(newTweet.user!.name!) retweeted"
             } else {
                 // it wasn't retweeted, hide it
                 self.retweetViewHeightConstraint.constant = 0
+                sourceTweet = newTweet
             }
-            HTKImageUtils.sharedInstance.displayImageUrl(newTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
-            self.userNameLabel?.text = newTweet.user?.name!
-            self.userScreennameLabel?.text = "@\(newTweet.user!.screenname!)"
-            self.tweetTextLabel?.text = newTweet.text
+            HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
+            self.userNameLabel?.text = sourceTweet.user?.name!
+            self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
+            self.tweetTextLabel?.text = sourceTweet.text
         }
 
         didSet(oldTweet) {
