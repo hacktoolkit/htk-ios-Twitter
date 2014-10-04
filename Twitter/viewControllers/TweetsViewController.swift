@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  TweetsViewController.swift
 //  Twitter
 //
 //  Created by Jonathan Tsai on 9/26/14.
@@ -8,7 +8,12 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+enum TweetsViewMode {
+    case Home
+    case User
+}
+
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -18,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let INFINITE_SCROLL_THRESHOLD = 5
     var IS_LOADING = false
     var OLDEST_TWEET: Tweet?
+    var viewMode = TweetsViewMode.Home
 
     var tweets = [Tweet]()
 
@@ -39,15 +45,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableView!.addSubview(refreshControl!)
 
         // data
-        getHomeTweets()
+        getTweets()
     }
 
     func tableRefreshCallback(refreshControl: UIRefreshControl) {
-        getHomeTweets(loadMore: false, resetData: true)
+        getTweets(loadMore: false, resetData: true)
     }
 
-    func getHomeTweets(loadMore: Bool = false, resetData: Bool = false) {
-        var params = [
+    func getTweets(loadMore: Bool = false, resetData: Bool = false) {
+        var params: [String:AnyObject] = [
             "count" : PAGE_SIZE,
         ]
         if (loadMore && self.OLDEST_TWEET != nil) {
@@ -55,26 +61,40 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         self.IS_LOADING = true
         var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        TwitterClient.sharedInstance.getHomeTimelineWithParams(
-            params,
-            callback: {
-                (tweets: [Tweet]?, error: NSError?) -> Void in
-                self.IS_LOADING = false
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                self.refreshControl?.endRefreshing()
-                if tweets != nil {
-                    if resetData {
-                        // wipe/refresh tweets in the case of pull to refresh
-                        self.tweets = tweets!
-                    } else {
-                        // keep extending in the case of infinite scroll
-                        self.tweets.extend(tweets!)
-                    }
-                    self.OLDEST_TWEET = self.tweets[self.tweets.count - 1]
-                    self.tableView.reloadData()
+        var tweetsCallback = {
+            (tweets: [Tweet]?, error: NSError?) -> Void in
+            self.IS_LOADING = false
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.refreshControl?.endRefreshing()
+            if tweets != nil {
+                if resetData {
+                    // wipe/refresh tweets in the case of pull to refresh
+                    self.tweets = tweets!
+                } else {
+                    // keep extending in the case of infinite scroll
+                    self.tweets.extend(tweets!)
                 }
+                self.OLDEST_TWEET = self.tweets[self.tweets.count - 1]
+                self.tableView.reloadData()
             }
-        )
+        }
+        switch self.viewMode {
+        case TweetsViewMode.Home:
+            TwitterClient.sharedInstance.getHomeTimelineWithParams(
+                params,
+                callback: tweetsCallback
+            )
+        case TweetsViewMode.User:
+            if TwitterUser.currentUser != nil {
+                TwitterClient.sharedInstance.getTimelineForUsername(
+                    TwitterUser.currentUser!.screenname!,
+                    params: params,
+                    callback: tweetsCallback
+                )
+            } else {
+                println("No current user")
+            }
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,7 +105,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if !self.IS_LOADING &&
             self.tweets.count > INFINITE_SCROLL_THRESHOLD &&
             atRow + INFINITE_SCROLL_THRESHOLD >= self.tweets.count {
-                getHomeTweets(loadMore: true)
+                getTweets(loadMore: true)
         }
     }
 
