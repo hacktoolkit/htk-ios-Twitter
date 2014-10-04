@@ -89,7 +89,7 @@
                                                         <constraint firstItem="Ew8-A1-wca" firstAttribute="top" secondItem="nF7-gG-xaN" secondAttribute="top" id="s8O-WO-oad"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVS-cA-y7h">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVS-cA-y7h" customClass="TTTAttributedLabel">
                                                     <rect key="frame" x="80" y="71" width="510" height="53"/>
                                                     <string key="text">Tweet Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -154,7 +154,7 @@
                                             <outlet property="retweetViewHeightConstraint" destination="Qfw-hh-NXg" id="wcW-GN-Sm8"/>
                                             <outlet property="retweeterLabel" destination="mmt-I4-3Sh" id="l6t-aD-Aqj"/>
                                             <outlet property="shortTimestampLabel" destination="yoN-7G-ru4" id="g7n-us-ifz"/>
-                                            <outlet property="tweetTextLabel" destination="uVS-cA-y7h" id="CcD-r0-d4B"/>
+                                            <outlet property="tweetTextLabel" destination="uVS-cA-y7h" id="CVJ-va-gz5"/>
                                             <outlet property="userNameLabel" destination="Ew8-A1-wca" id="ILM-SX-bjd"/>
                                             <outlet property="userScreennameLabel" destination="uZR-ry-oam" id="4wR-Jo-kCO"/>
                                             <outlet property="userThumbnailImage" destination="gpJ-y7-qaq" id="jBH-Ox-ecN"/>
@@ -263,15 +263,19 @@
                                     <action selector="onLogin:" destination="eSj-4Z-H5E" eventType="touchUpInside" id="DEo-zw-gHd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird_blue_48.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmt-RA-CJT">
-                                <rect key="frame" x="278" y="197" width="44" height="35"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmt-RA-CJT">
+                                <rect key="frame" x="200" y="89" width="200" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="IdE-NN-pwf"/>
+                                    <constraint firstAttribute="height" constant="163" id="jV6-as-KeM"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="Lvz-8r-nFE" secondAttribute="centerX" id="GC9-gv-AXE"/>
                             <constraint firstAttribute="centerX" secondItem="fmt-RA-CJT" secondAttribute="centerX" id="Y7l-yI-i5C"/>
-                            <constraint firstItem="Lvz-8r-nFE" firstAttribute="top" secondItem="fmt-RA-CJT" secondAttribute="bottom" constant="50" id="ehF-pz-uSg"/>
+                            <constraint firstItem="Lvz-8r-nFE" firstAttribute="top" secondItem="fmt-RA-CJT" secondAttribute="bottom" constant="30" id="ehF-pz-uSg"/>
                             <constraint firstAttribute="centerY" secondItem="Lvz-8r-nFE" secondAttribute="centerY" id="vEn-l0-qDn"/>
                         </constraints>
                     </view>
@@ -623,7 +627,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bird_blue_48.png" width="44" height="35"/>
+        <image name="Twitter_logo_blue.png" width="1139" height="926"/>
         <image name="favorite.png" width="16" height="16"/>
         <image name="reply.png" width="16" height="16"/>
         <image name="retweet.png" width="16" height="16"/>

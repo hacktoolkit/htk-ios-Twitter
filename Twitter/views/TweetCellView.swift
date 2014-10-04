@@ -18,7 +18,7 @@ class TweetCellView: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userScreennameLabel: UILabel!
     @IBOutlet weak var shortTimestampLabel: UILabel!
-    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: TTTAttributedLabel!
 
     var tweet: Tweet! {
         willSet(newTweet) {
@@ -34,6 +34,7 @@ class TweetCellView: UITableViewCell {
             HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
             self.userNameLabel?.text = sourceTweet.user?.name!
             self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
+//            self.tweetTextLabel?.enabledTextCheckingTypes = NSTextCheckingType.Link
             self.tweetTextLabel?.text = sourceTweet.text
             self.shortTimestampLabel?.text = sourceTweet.createdAt?.prettyTimestampSinceNow()
         }
