@@ -35,6 +35,7 @@ class TweetCellView: UITableViewCell {
             self.userNameLabel?.text = sourceTweet.user?.name!
             self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
             self.tweetTextLabel?.text = sourceTweet.text
+            self.shortTimestampLabel?.text = sourceTweet.createdAt?.prettyTimestampSinceNow()
         }
 
         didSet(oldTweet) {
