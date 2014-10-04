@@ -10,6 +10,12 @@ import UIKit
 
 class ComposeTweetViewController: UIViewController {
 
+    @IBOutlet weak var charCountLabel: UILabel!
+    @IBOutlet weak var userThumbnailImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userScreennameLabel: UILabel!
+    @IBOutlet weak var tweetTextField: UIView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +27,13 @@ class ComposeTweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onCancelButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    @IBAction func onTweetButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
