@@ -281,7 +281,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Lvz-8r-nFE" id="Amu-2S-UOU"/>
-                        <segue destination="szC-y1-pQD" kind="presentation" identifier="loginSegue" id="z9m-DM-cY6"/>
+                        <segue destination="CKn-CP-YnJ" kind="presentation" identifier="loginSegue" id="wvk-3p-mAw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UL-kp-iuw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,7 +480,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OxG-KM-mta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-778" y="337"/>
+            <point key="canvasLocation" x="-28" y="1089"/>
         </scene>
         <!--Compose Tweet View Controller-->
         <scene sceneID="knG-Uv-NTH">
@@ -606,6 +606,108 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAy-y1-8Fe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="729" y="364"/>
+        </scene>
+        <!--Sidebar View Controller-->
+        <scene sceneID="EIG-J1-IzQ">
+            <objects>
+                <viewController id="CKn-CP-YnJ" userLabel="Sidebar View Controller" customClass="SidebarViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xrI-Q4-9AT"/>
+                        <viewControllerLayoutGuide type="bottom" id="0mx-tp-FN5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CTh-XC-ODZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg9-W1-aed" userLabel="Sidebar View">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-BW-gKj">
+                                        <rect key="frame" x="21" y="171" width="44" height="30"/>
+                                        <state key="normal" title="Profile">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="WN5-wI-cH0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-gL-NCz">
+                                        <rect key="frame" x="24" y="133" width="41" height="30"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="k8U-4q-TTA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="2gu-pQ-aDv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awh-af-HJN" userLabel="Content View">
+                                <rect key="frame" x="160" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="hXI-yC-zCs" appends="YES" id="uOw-wK-hkI"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="awh-af-HJN" firstAttribute="width" secondItem="CTh-XC-ODZ" secondAttribute="width" id="87r-4X-0qA"/>
+                            <constraint firstItem="Eg9-W1-aed" firstAttribute="top" secondItem="CTh-XC-ODZ" secondAttribute="top" id="9Md-E4-MoI"/>
+                            <constraint firstItem="awh-af-HJN" firstAttribute="height" secondItem="CTh-XC-ODZ" secondAttribute="height" id="Aah-Wv-7dc"/>
+                            <constraint firstAttribute="centerY" secondItem="awh-af-HJN" secondAttribute="centerY" id="c4N-iY-9FZ"/>
+                            <constraint firstAttribute="centerX" secondItem="awh-af-HJN" secondAttribute="centerX" constant="-160" id="n2Z-FF-tTg"/>
+                            <constraint firstItem="0mx-tp-FN5" firstAttribute="top" secondItem="Eg9-W1-aed" secondAttribute="bottom" id="o86-II-5ME"/>
+                            <constraint firstItem="Eg9-W1-aed" firstAttribute="leading" secondItem="CTh-XC-ODZ" secondAttribute="leading" id="zqZ-4i-f6a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="awh-af-HJN" id="Ffy-3y-lL6"/>
+                        <outlet property="contentViewXConstraint" destination="n2Z-FF-tTg" id="gSi-nM-pey"/>
+                        <outlet property="homeButton" destination="9eA-gL-NCz" id="1aa-CJ-Ner"/>
+                        <outlet property="profileButton" destination="1H9-BW-gKj" id="Cop-bi-E6b"/>
+                        <outlet property="sidebarView" destination="Eg9-W1-aed" id="Xmf-mw-TFs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JT8-d0-zBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="hXI-yC-zCs">
+                    <connections>
+                        <action selector="didSwipeOverContentView:" destination="CKn-CP-YnJ" id="S31-rT-jLN"/>
+                    </connections>
+                </swipeGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-788" y="341"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="OJU-cK-vpO">
+            <objects>
+                <viewController id="QI7-83-Ijn" userLabel="Profile View Controller" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lAk-vp-nGH"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZRA-YU-9Zj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x9F-VS-zO5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is my temporary profile view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzT-7j-Rvn">
+                                <rect key="frame" x="215" y="168" width="252" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cOH-j3-8IZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="1034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GK0-oL-uGL">

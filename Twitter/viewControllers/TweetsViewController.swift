@@ -29,7 +29,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // TODO: tableView is nil at this point, for some reason
+        println("test")
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self

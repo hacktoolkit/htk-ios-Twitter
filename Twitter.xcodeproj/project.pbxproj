@@ -30,6 +30,8 @@
 		56C27E5719DBA8A700AE1338 /* retweet-sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C27E4219DBA8A700AE1338 /* retweet-sprite.png */; };
 		56C27E5B19E0A28200AE1338 /* Twitter_logo_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C27E5919E0A28200AE1338 /* Twitter_logo_blue.png */; };
 		56C27E5C19E0A28200AE1338 /* Twitter_logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 56C27E5A19E0A28200AE1338 /* Twitter_logo_white.png */; };
+		56C27E5E19E0B68700AE1338 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */; };
+		56C27E6019E0B6E400AE1338 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */; };
 		56C3221919DB535200E3FD6E /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */; };
 		56C3221B19DB535F00E3FD6E /* TweetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */; };
 		56C450AE19DAA29700551220 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C450AD19DAA29700551220 /* LoginViewController.swift */; };
@@ -97,6 +99,8 @@
 		56C27E4219DBA8A700AE1338 /* retweet-sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "retweet-sprite.png"; sourceTree = "<group>"; };
 		56C27E5919E0A28200AE1338 /* Twitter_logo_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_blue.png; sourceTree = "<group>"; };
 		56C27E5A19E0A28200AE1338 /* Twitter_logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter_logo_white.png; sourceTree = "<group>"; };
+		56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarViewController.swift; path = viewControllers/SidebarViewController.swift; sourceTree = "<group>"; };
+		56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = viewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeTweetViewController.swift; path = viewControllers/ComposeTweetViewController.swift; sourceTree = "<group>"; };
 		56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetDetailsViewController.swift; path = viewControllers/TweetDetailsViewController.swift; sourceTree = "<group>"; };
 		56C450AD19DAA29700551220 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = viewControllers/LoginViewController.swift; sourceTree = "<group>"; };
@@ -425,6 +429,8 @@
 				56C450AD19DAA29700551220 /* LoginViewController.swift */,
 				56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */,
 				56C3221A19DB535F00E3FD6E /* TweetDetailsViewController.swift */,
+				56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */,
+				56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -601,10 +607,12 @@
 				56C4513419DAB7E500551220 /* GitHubUser.swift in Sources */,
 				56C4513E19DAB7E500551220 /* HTKImageUtils.swift in Sources */,
 				56C4513319DAB7E500551220 /* GitHubResource.swift in Sources */,
+				56C27E5E19E0B68700AE1338 /* SidebarViewController.swift in Sources */,
 				56C3221919DB535200E3FD6E /* ComposeTweetViewController.swift in Sources */,
 				56C4513A19DAB7E500551220 /* YelpBusinessResult.swift in Sources */,
 				56C4513619DAB7E500551220 /* RottenTomatoesClient.swift in Sources */,
 				56C4513119DAB7E500551220 /* GitHubRepository.swift in Sources */,
+				56C27E6019E0B6E400AE1338 /* ProfileViewController.swift in Sources */,
 				56C4513919DAB7E500551220 /* TwitterClient.swift in Sources */,
 				56C3221B19DB535F00E3FD6E /* TweetDetailsViewController.swift in Sources */,
 				56C4513719DAB7E500551220 /* Tweet.swift in Sources */,
