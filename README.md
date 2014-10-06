@@ -28,7 +28,9 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ## Features
 
-Time spent: 17 hours
+### Part 1 - Basic Twitter Client
+
+Time spent: 23 hours
 
 '''Core User Stories'''
 
@@ -42,9 +44,11 @@ Time spent: 17 hours
 
 '''Optional User Stories'''
 
-* [x] When composing, you should have a countdown in the upper right for the Tweet limit. Turns red and prevents posting Tweet when it exceeds the limit.
-* [x]: After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
-* Optional: Retweeting and favoriting should increment the retweet and favorite count.
-* Optional: User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
+* [x] Countdown in the upper right for the Tweet limit. Turns red and prevents posting Tweet when it exceeds the limit.
+* [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+* [x] Retweeting and favoriting increments the retweet and favorite count.
+* [x] User can unretweet and unfavorite, and decrements the retweet and favorite count.
 * Optional: Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
 * [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
+
+### Part 2 - Twitter Redux

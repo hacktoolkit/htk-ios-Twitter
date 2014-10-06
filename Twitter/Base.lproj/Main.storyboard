@@ -118,6 +118,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
+                                                                <action selector="onControlButton:" destination="VWw-kr-RBK" eventType="touchUpInside" id="Vl2-3o-2CJ"/>
                                                                 <action selector="onControlButton:" destination="GU5-Ky-U79" eventType="touchUpInside" id="ePk-Vh-R4C"/>
                                                             </connections>
                                                         </button>
@@ -130,6 +131,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
+                                                                <action selector="onControlButton:" destination="VWw-kr-RBK" eventType="touchUpInside" id="ABD-jg-JGG"/>
                                                                 <action selector="onControlButton:" destination="GU5-Ky-U79" eventType="touchUpInside" id="JLW-pX-HbN"/>
                                                             </connections>
                                                         </button>
@@ -142,6 +144,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
+                                                                <action selector="onControlButton:" destination="VWw-kr-RBK" eventType="touchUpInside" id="1fK-La-Yaw"/>
                                                                 <action selector="onControlButton:" destination="GU5-Ky-U79" eventType="touchUpInside" id="KJD-KK-E9M"/>
                                                             </connections>
                                                         </button>

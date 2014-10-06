@@ -27,15 +27,13 @@ class TweetCellView: UITableViewCell {
 
     var tweet: Tweet! {
         willSet(newTweet) {
-            var sourceTweet: Tweet
-            if newTweet.retweetSource != nil {
-                sourceTweet = newTweet.retweetSource!
+            var sourceTweet = newTweet.getSource()
+            if newTweet.wasRetweeted() {
                 self.retweeterLabel?.text = "\(newTweet.user!.name!) retweeted"
                 self.retweetViewHeightConstraint.constant = CGFloat(RETWEET_VIEW_HEIGHT)
             } else {
                 // it wasn't retweeted, hide it
                 self.retweetViewHeightConstraint?.constant = 0
-                sourceTweet = newTweet
             }
             HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
             self.userNameLabel?.text = sourceTweet.user?.name!
@@ -45,19 +43,7 @@ class TweetCellView: UITableViewCell {
 
             self.shortTimestampLabel?.text = sourceTweet.createdAt?.prettyTimestampSinceNow()
 
-            if sourceTweet.retweeted! {
-                retweetButton.setImage(
-                    RETWEET_ON_IMAGE,
-                    forState: UIControlState.Normal
-                )
-            }
-            
-            if sourceTweet.favorited! {
-                favoriteButton.setImage(
-                    FAVORITE_ON_IMAGE,
-                    forState: UIControlState.Normal
-                )
-            }
+            self.updateButtonImages()
         }
 
         didSet(oldTweet) {
@@ -68,6 +54,10 @@ class TweetCellView: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupButtonImages()
+    }
+
+    func setupButtonImages() {
         replyButton.setImage(
             REPLY_HOVER_IMAGE,
             forState: UIControlState.Highlighted
@@ -82,10 +72,51 @@ class TweetCellView: UITableViewCell {
         )
     }
 
+    func updateButtonImages() {
+        if self.tweet?.retweeted! == true {
+            retweetButton.setImage(
+                RETWEET_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        } else {
+            retweetButton.setImage(
+                RETWEET_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
+
+        if self.tweet?.favorited! == true {
+            favoriteButton.setImage(
+                FAVORITE_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        } else {
+            favoriteButton.setImage(
+                FAVORITE_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
+    }
+
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    @IBAction func onControlButton(sender: UIButton) {
+        if sender == replyButton {
+            println("Reply button")
+        } else if sender == retweetButton {
+            println("Retweet button")
+            self.tweet.toggleRetweet()
+        } else if sender == favoriteButton {
+            println("Favorite button")
+            self.tweet.toggleFavorite()
+        } else {
+            println("Unknown button")
+        }
+        self.updateButtonImages()
     }
 
 }

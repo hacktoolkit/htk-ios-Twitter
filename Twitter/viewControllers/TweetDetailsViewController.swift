@@ -35,6 +35,16 @@ class TweetDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupButtonImages()
+        formatWithTweet()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    func setupButtonImages() {
         replyButton.setImage(
             REPLY_HOVER_IMAGE,
             forState: UIControlState.Highlighted
@@ -47,26 +57,50 @@ class TweetDetailsViewController: UIViewController {
             FAVORITE_HOVER_IMAGE,
             forState: UIControlState.Highlighted
         )
-        formatWithTweet()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateButtonImages() {
+        if self.tweet.retweeted! {
+            retweetButton.setImage(
+                RETWEET_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        } else {
+            retweetButton.setImage(
+                RETWEET_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
+
+        if self.tweet.favorited! {
+            favoriteButton.setImage(
+                FAVORITE_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        } else {
+            favoriteButton.setImage(
+                FAVORITE_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
     }
-    
+
+    func updateButtonCounts() {
+        var sourceTweet = self.tweet.getSource()
+        self.retweetCountsLabel?.text = "\(sourceTweet.retweetCount!)"
+        self.favoriteCountsLabel?.text = "\(sourceTweet.favoriteCount!)"
+    }
 
     func formatWithTweet() {
-        var sourceTweet: Tweet
-        if self.tweet.retweetSource != nil {
-            sourceTweet = self.tweet.retweetSource!
+        var sourceTweet = self.tweet.getSource()
+        if self.tweet.wasRetweeted() {
             self.retweeterLabel?.text = "\(self.tweet.user!.name!) retweeted"
             self.retweetViewHeightConstraint.constant = CGFloat(RETWEET_VIEW_HEIGHT)
         } else {
             // it wasn't retweeted, hide it
             self.retweetViewHeightConstraint?.constant = 0
-            sourceTweet = self.tweet
         }
+
         HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
         self.userNameLabel?.text = sourceTweet.user?.name!
         self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
@@ -79,19 +113,7 @@ class TweetDetailsViewController: UIViewController {
         self.retweetCountsLabel?.text = "\(sourceTweet.retweetCount!)"
         self.favoriteCountsLabel?.text = "\(sourceTweet.favoriteCount!)"
 
-        if sourceTweet.retweeted! {
-            retweetButton.setImage(
-                RETWEET_ON_IMAGE,
-                forState: UIControlState.Normal
-            )
-        }
-        
-        if sourceTweet.favorited! {
-            favoriteButton.setImage(
-                FAVORITE_ON_IMAGE,
-                forState: UIControlState.Normal
-            )
-        }
+        self.updateButtonImages()
     }
 
     @IBAction func onControlButton(sender: UIButton) {
@@ -99,13 +121,17 @@ class TweetDetailsViewController: UIViewController {
             println("Reply button")
         } else if sender == retweetButton {
             println("Retweet button")
+            self.tweet.toggleRetweet()
         } else if sender == favoriteButton {
             println("Favorite button")
+            self.tweet.toggleFavorite()
         } else {
             println("Unknown button")
         }
+        self.updateButtonImages()
+        self.updateButtonCounts()
     }
-    
+
     /*
     // MARK: - Navigation
 
