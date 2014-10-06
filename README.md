@@ -32,7 +32,7 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 Time spent: 26 hours
 
-'''Core User Stories'''
+**Core User Stories**
 
 * [x] User can sign in using OAuth login flow
 * [x] User can view last 20 tweets from their home timeline
@@ -42,7 +42,7 @@ Time spent: 26 hours
 * [x] User can compose a new tweet by tapping on a compose button.
 * [x] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 
-'''Optional User Stories'''
+**Optional User Stories**
 
 * [x] Countdown in the upper right for the Tweet limit. Turns red and prevents posting Tweet when it exceeds the limit.
 * [x] After creating a new tweet, a user can view it in the timeline immediately without refetching the timeline from the network.
