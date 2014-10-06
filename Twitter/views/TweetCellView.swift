@@ -26,11 +26,11 @@ class TweetCellView: UITableViewCell {
             var sourceTweet: Tweet
             if newTweet.retweetSource != nil {
                 sourceTweet = newTweet.retweetSource!
-                self.retweeterLabel.text = "\(newTweet.user!.name!) retweeted"
+                self.retweeterLabel?.text = "\(newTweet.user!.name!) retweeted"
                 self.retweetViewHeightConstraint.constant = CGFloat(RETWEET_VIEW_HEIGHT)
             } else {
                 // it wasn't retweeted, hide it
-                self.retweetViewHeightConstraint.constant = 0
+                self.retweetViewHeightConstraint?.constant = 0
                 sourceTweet = newTweet
             }
             HTKImageUtils.sharedInstance.displayImageUrl(sourceTweet.user!.profileImageUrl!, imageView: self.userThumbnailImage)
@@ -38,6 +38,7 @@ class TweetCellView: UITableViewCell {
             self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
 //            self.tweetTextLabel?.enabledTextCheckingTypes = NSTextCheckingType.Link
             self.tweetTextLabel?.text = sourceTweet.text
+
             self.shortTimestampLabel?.text = sourceTweet.createdAt?.prettyTimestampSinceNow()
         }
 

@@ -137,7 +137,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.deselectRowAtIndexPath(indexPath, animated: false)
 
         var tweet = self.tweets[indexPath.row]
-        var tweetDetailsViewController = TweetDetailsViewController(nibName: nil, bundle: nil)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var tweetDetailsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetDetailsViewController") as TweetDetailsViewController
         tweetDetailsViewController.tweet = tweet
         self.navigationController?.pushViewController(tweetDetailsViewController, animated: true)
     }
