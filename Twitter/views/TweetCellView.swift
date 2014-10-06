@@ -9,6 +9,7 @@
 import UIKit
 
 class TweetCellView: UITableViewCell {
+    let RETWEET_VIEW_HEIGHT = 15
 
     @IBOutlet weak var retweetView: UIView!
     @IBOutlet weak var retweeterLabel: UILabel!
@@ -26,6 +27,7 @@ class TweetCellView: UITableViewCell {
             if newTweet.retweetSource != nil {
                 sourceTweet = newTweet.retweetSource!
                 self.retweeterLabel.text = "\(newTweet.user!.name!) retweeted"
+                self.retweetViewHeightConstraint.constant = CGFloat(RETWEET_VIEW_HEIGHT)
             } else {
                 // it wasn't retweeted, hide it
                 self.retweetViewHeightConstraint.constant = 0
