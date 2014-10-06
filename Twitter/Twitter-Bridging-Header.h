@@ -12,3 +12,4 @@
 
 // Other dependencies
 #import "NSDate+PrettyTimestamp.h"
+#import "TTTAttributedLabel.h"
