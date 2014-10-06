@@ -56,8 +56,10 @@ class TweetDetailsViewController: UIViewController {
         self.userScreennameLabel?.text = "@\(sourceTweet.user!.screenname!)"
         //            self.tweetTextLabel?.enabledTextCheckingTypes = NSTextCheckingType.Link
         self.tweetTextLabel?.text = sourceTweet.text
-        self.timestampLabel?.text = sourceTweet.createdAtString
-        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy, HH:mm:ss"
+        self.timestampLabel?.text = dateFormatter.stringFromDate(sourceTweet.createdAt!)
+
         self.retweetCountsLabel?.text = "\(sourceTweet.retweetCount!)"
         self.favoriteCountsLabel?.text = "\(sourceTweet.favoriteCount!)"
     }
