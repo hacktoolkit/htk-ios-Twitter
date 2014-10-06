@@ -25,12 +25,28 @@ class TweetDetailsViewController: UIViewController {
     @IBOutlet weak var retweetCountsLabel: UILabel!
     @IBOutlet weak var favoriteCountsLabel: UILabel!
 
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     var tweet: Tweet!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        replyButton.setImage(
+            REPLY_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
+        retweetButton.setImage(
+            RETWEET_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
+        favoriteButton.setImage(
+            FAVORITE_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
         formatWithTweet()
     }
 
@@ -62,8 +78,34 @@ class TweetDetailsViewController: UIViewController {
 
         self.retweetCountsLabel?.text = "\(sourceTweet.retweetCount!)"
         self.favoriteCountsLabel?.text = "\(sourceTweet.favoriteCount!)"
+
+        if sourceTweet.retweeted! {
+            retweetButton.setImage(
+                RETWEET_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
+        
+        if sourceTweet.favorited! {
+            favoriteButton.setImage(
+                FAVORITE_ON_IMAGE,
+                forState: UIControlState.Normal
+            )
+        }
     }
 
+    @IBAction func onControlButton(sender: UIButton) {
+        if sender == replyButton {
+            println("Reply button")
+        } else if sender == retweetButton {
+            println("Retweet button")
+        } else if sender == favoriteButton {
+            println("Favorite button")
+        } else {
+            println("Unknown button")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

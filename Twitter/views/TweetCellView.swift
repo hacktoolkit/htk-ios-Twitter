@@ -21,6 +21,10 @@ class TweetCellView: UITableViewCell {
     @IBOutlet weak var shortTimestampLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: TTTAttributedLabel!
 
+    @IBOutlet weak var replyButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+
     var tweet: Tweet! {
         willSet(newTweet) {
             var sourceTweet: Tweet
@@ -40,6 +44,20 @@ class TweetCellView: UITableViewCell {
             self.tweetTextLabel?.text = sourceTweet.text
 
             self.shortTimestampLabel?.text = sourceTweet.createdAt?.prettyTimestampSinceNow()
+
+            if sourceTweet.retweeted! {
+                retweetButton.setImage(
+                    RETWEET_ON_IMAGE,
+                    forState: UIControlState.Normal
+                )
+            }
+            
+            if sourceTweet.favorited! {
+                favoriteButton.setImage(
+                    FAVORITE_ON_IMAGE,
+                    forState: UIControlState.Normal
+                )
+            }
         }
 
         didSet(oldTweet) {
@@ -50,6 +68,18 @@ class TweetCellView: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        replyButton.setImage(
+            REPLY_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
+        retweetButton.setImage(
+            RETWEET_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
+        favoriteButton.setImage(
+            FAVORITE_HOVER_IMAGE,
+            forState: UIControlState.Highlighted
+        )
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
