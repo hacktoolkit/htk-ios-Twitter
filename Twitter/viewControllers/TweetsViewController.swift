@@ -53,6 +53,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         getTweets(loadMore: false, resetData: true)
     }
 
+    func insertTweet(tweet: Tweet) {
+        self.tweets.insert(tweet, atIndex: 0)
+        self.tableView.reloadData()
+    }
+
     func getTweets(loadMore: Bool = false, resetData: Bool = false) {
         var params: [String:AnyObject] = [
             "count" : PAGE_SIZE,

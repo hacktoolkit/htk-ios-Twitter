@@ -10,8 +10,6 @@ import UIKit
 
 class ComposeTweetViewController: UIViewController, UITextViewDelegate {
 
-    let TWEET_LENGTH_LIMIT = 120
-
     @IBOutlet weak var charCountLabel: TTTAttributedLabel!
     @IBOutlet weak var userThumbnailImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -48,8 +46,22 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     @IBAction func onTweetButton(sender: AnyObject) {
         var tweetLength = self.getTweetLength()
         if tweetLength <= TWEET_LENGTH_LIMIT {
-            // TODO: post the tweet
-            self.dismissViewControllerAnimated(true, completion: nil)
+            var status = self.tweetTextView.text
+            var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            Tweet.create(
+                status,
+                withCompletion: {
+                    (tweet: Tweet?, error: NSError?) -> Void in
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    if tweet != nil {
+                        var nav = self.navigationController!
+                        var tweetsNav = nav.presentingViewController! as UINavigationController
+                        var tweetsVC = tweetsNav.topViewController as TweetsViewController
+                        tweetsVC.insertTweet(tweet!)
+                    }
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            )
         }
     }
 

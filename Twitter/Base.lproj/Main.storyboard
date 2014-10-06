@@ -724,10 +724,10 @@
             </objects>
             <point key="canvasLocation" x="1078" y="1034"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Compose Tweet Navigation Controller-->
         <scene sceneID="GK0-oL-uGL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iNw-vk-n63" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iNw-vk-n63" userLabel="Compose Tweet Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w4i-lq-z5E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
