@@ -122,10 +122,12 @@ class TweetDetailsViewController: UIViewController {
             doReply()
         } else if sender == retweetButton {
             println("Retweet button")
-            self.tweet.toggleRetweet()
+            // TODO: pass in a callback to revert the optimistic image update
+            self.tweet.toggleRetweet({})
         } else if sender == favoriteButton {
             println("Favorite button")
-            self.tweet.toggleFavorite()
+            // TODO: pass in a callback to revert the optimistic image update
+            self.tweet.toggleFavorite({})
         } else {
             println("Unknown button")
         }

@@ -30,7 +30,7 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ### Part 1 - Basic Twitter Client
 
-Time spent: 25 hours
+Time spent: 26 hours
 
 '''Core User Stories'''
 
@@ -45,7 +45,7 @@ Time spent: 25 hours
 '''Optional User Stories'''
 
 * [x] Countdown in the upper right for the Tweet limit. Turns red and prevents posting Tweet when it exceeds the limit.
-* [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
+* [x] After creating a new tweet, a user can view it in the timeline immediately without refetching the timeline from the network.
 * [x] Retweeting and favoriting increments the retweet and favorite count.
 * [x] User can unretweet and unfavorite, and decrements the retweet and favorite count.
 * [x] Replies are prefixed with the username and the reply_id is set when posting the tweet,
