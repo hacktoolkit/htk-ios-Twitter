@@ -18,6 +18,9 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
   * `sudo gem install cocoapods`
 * Install Pods
   * `pod install`
+* Update/initialize the [hacktoolkit-ios_lib](https://github.com/hacktoolkit/hacktoolkit-ios_lib) submodule (temporary step until CocoaPods supports Swift source files natively)
+  * `git submodule init`
+  * `git submodule update`
 * Set up API keys
   * Create a `secrets.xcconfig` config file based on `secrets.xcconfig.template`
   * Obtain API keys from the [Twitter Developers page](http://www.twitter.com/developers/manage_api_keys) and add the keys to `secrets.xcconfig`
