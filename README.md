@@ -9,7 +9,7 @@ This is a basic Twitter client.
 
 Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of what it looks like:
 
-![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20140930.gif)
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
 
 ## Download and Build Instructions
 
