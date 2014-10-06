@@ -35,6 +35,10 @@ class TweetDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var nav = self.navigationController!
+        // TODO: couldn't get adding reply button to nav bar to work
+        nav.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reply", style: UIBarButtonItemStyle.Plain, target: self, action: "onReply")
+
         setupButtonImages()
         formatWithTweet()
     }
@@ -42,6 +46,10 @@ class TweetDetailsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func onReply() {
+        // for the button?
     }
 
     func setupButtonImages() {
@@ -60,26 +68,18 @@ class TweetDetailsViewController: UIViewController {
     }
 
     func updateButtonImages() {
-        if self.tweet.retweeted! {
+        if self.tweet != nil {
+            var tweet = self.tweet!
+            replyButton.setImage(
+                tweet.getSource().didReply ? REPLY_HOVER_IMAGE : REPLY_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
             retweetButton.setImage(
-                RETWEET_ON_IMAGE,
+                tweet.retweeted! ? RETWEET_ON_IMAGE : RETWEET_NORMAL_IMAGE,
                 forState: UIControlState.Normal
             )
-        } else {
-            retweetButton.setImage(
-                RETWEET_NORMAL_IMAGE,
-                forState: UIControlState.Normal
-            )
-        }
-
-        if self.tweet.favorited! {
             favoriteButton.setImage(
-                FAVORITE_ON_IMAGE,
-                forState: UIControlState.Normal
-            )
-        } else {
-            favoriteButton.setImage(
-                FAVORITE_NORMAL_IMAGE,
+                tweet.favorited! ? FAVORITE_ON_IMAGE : FAVORITE_NORMAL_IMAGE,
                 forState: UIControlState.Normal
             )
         }
@@ -119,6 +119,7 @@ class TweetDetailsViewController: UIViewController {
     @IBAction func onControlButton(sender: UIButton) {
         if sender == replyButton {
             println("Reply button")
+            doReply()
         } else if sender == retweetButton {
             println("Retweet button")
             self.tweet.toggleRetweet()
@@ -130,6 +131,16 @@ class TweetDetailsViewController: UIViewController {
         }
         self.updateButtonImages()
         self.updateButtonCounts()
+    }
+
+    func doReply() {
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var composeTweetNavigationController = storyboard.instantiateViewControllerWithIdentifier("ComposeTweetNavigationController") as UINavigationController
+        self.presentViewController(composeTweetNavigationController, animated: true, completion: {
+            () -> Void in
+            var composeTweetViewController = composeTweetNavigationController.topViewController as? ComposeTweetViewController
+            composeTweetViewController?.replyTweet = self.tweet.getSource()
+        })
     }
 
     /*

@@ -30,7 +30,7 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ### Part 1 - Basic Twitter Client
 
-Time spent: 23 hours
+Time spent: 25 hours
 
 '''Core User Stories'''
 
@@ -40,7 +40,7 @@ Time spent: 23 hours
 * [x] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp. 
 * [x] User can pull to refresh
 * [x] User can compose a new tweet by tapping on a compose button.
-* [wip] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
+* [x] User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 
 '''Optional User Stories'''
 
@@ -48,7 +48,7 @@ Time spent: 23 hours
 * [x] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 * [x] Retweeting and favoriting increments the retweet and favorite count.
 * [x] User can unretweet and unfavorite, and decrements the retweet and favorite count.
-* Optional: Replies should be prefixed with the username and the reply_id should be set when posting the tweet,
+* [x] Replies are prefixed with the username and the reply_id is set when posting the tweet,
 * [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Part 2 - Twitter Redux

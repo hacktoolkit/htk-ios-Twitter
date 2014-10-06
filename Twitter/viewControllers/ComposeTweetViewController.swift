@@ -9,7 +9,6 @@
 import UIKit
 
 class ComposeTweetViewController: UIViewController, UITextViewDelegate {
-
     @IBOutlet weak var charCountLabel: TTTAttributedLabel!
     @IBOutlet weak var userThumbnailImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -18,6 +17,16 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var tweetButton: UIButton!
+
+    var replyTweet: Tweet! {
+        willSet(newTweet) {
+            self.tweetTextView.text = "@\(newTweet!.user!.screenname!) "
+        }
+
+        didSet(oldTweet) {
+            // do nothing
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +59,24 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
             var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
             Tweet.create(
                 status,
+                asReplyTo: self.replyTweet,
                 withCompletion: {
                     (tweet: Tweet?, error: NSError?) -> Void in
                     MBProgressHUD.hideHUDForView(self.view, animated: true)
                     if tweet != nil {
                         var nav = self.navigationController!
                         var tweetsNav = nav.presentingViewController! as UINavigationController
-                        var tweetsVC = tweetsNav.topViewController as TweetsViewController
-                        tweetsVC.insertTweet(tweet!)
+                        if self.replyTweet != nil {
+                            self.replyTweet!.didReply = true
+                            if let tweetDetailsVC = tweetsNav.topViewController as? TweetDetailsViewController {
+                                tweetDetailsVC.updateButtonImages()
+                            }
+                        } else if let tweetsVC = tweetsNav.topViewController as? TweetsViewController {
+                            // Compose Tweet
+                            tweetsVC.insertTweet(tweet!)
+                        } else {
+                            // do nothing?
+                        }
                     }
                     self.dismissViewControllerAnimated(true, completion: nil)
                 }

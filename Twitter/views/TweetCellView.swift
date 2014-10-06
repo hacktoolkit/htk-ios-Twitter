@@ -73,26 +73,18 @@ class TweetCellView: UITableViewCell {
     }
 
     func updateButtonImages() {
-        if self.tweet?.retweeted! == true {
+        if self.tweet != nil {
+            var tweet = self.tweet!
+            replyButton.setImage(
+                tweet.getSource().didReply ? REPLY_HOVER_IMAGE : REPLY_NORMAL_IMAGE,
+                forState: UIControlState.Normal
+            )
             retweetButton.setImage(
-                RETWEET_ON_IMAGE,
+                tweet.retweeted! ? RETWEET_ON_IMAGE : RETWEET_NORMAL_IMAGE,
                 forState: UIControlState.Normal
             )
-        } else {
-            retweetButton.setImage(
-                RETWEET_NORMAL_IMAGE,
-                forState: UIControlState.Normal
-            )
-        }
-
-        if self.tweet?.favorited! == true {
             favoriteButton.setImage(
-                FAVORITE_ON_IMAGE,
-                forState: UIControlState.Normal
-            )
-        } else {
-            favoriteButton.setImage(
-                FAVORITE_NORMAL_IMAGE,
+                tweet.favorited! ? FAVORITE_ON_IMAGE : FAVORITE_NORMAL_IMAGE,
                 forState: UIControlState.Normal
             )
         }
