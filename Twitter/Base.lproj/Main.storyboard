@@ -281,7 +281,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Lvz-8r-nFE" id="Amu-2S-UOU"/>
-                        <segue destination="CKn-CP-YnJ" kind="presentation" identifier="loginSegue" id="wvk-3p-mAw"/>
+                        <segue destination="szC-y1-pQD" kind="presentation" identifier="loginSegue" id="PYn-8g-6hl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UL-kp-iuw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,7 +495,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-z8-FSR" userLabel="User Heading">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pK6-Wc-OIe">
                                         <rect key="frame" x="10" y="10" width="60" height="60"/>
@@ -529,33 +529,46 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fcm-gR-8uL" userLabel="Text Container">
-                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                                <rect key="frame" x="0.0" y="144" width="600" height="456"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pN2-Ld-JxW">
-                                        <rect key="frame" x="10" y="0.0" width="580" height="520"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4x-la-Thr">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="456"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="C6V-We-sdb" id="H96-mK-iNY"/>
+                                        </connections>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="pN2-Ld-JxW" firstAttribute="top" secondItem="Fcm-gR-8uL" secondAttribute="top" id="J36-cv-fs2"/>
-                                    <constraint firstAttribute="trailing" secondItem="pN2-Ld-JxW" secondAttribute="trailing" constant="10" id="lxW-5J-ITi"/>
-                                    <constraint firstAttribute="bottom" secondItem="pN2-Ld-JxW" secondAttribute="bottom" id="quQ-Vs-1xF"/>
-                                    <constraint firstItem="pN2-Ld-JxW" firstAttribute="leading" secondItem="Fcm-gR-8uL" secondAttribute="leading" constant="10" id="yq1-sB-QH5"/>
+                                    <constraint firstItem="P4x-la-Thr" firstAttribute="top" secondItem="Fcm-gR-8uL" secondAttribute="top" id="JkB-jH-tNe"/>
+                                    <constraint firstAttribute="trailing" secondItem="P4x-la-Thr" secondAttribute="trailing" id="kyB-FZ-beO"/>
+                                    <constraint firstItem="P4x-la-Thr" firstAttribute="leading" secondItem="Fcm-gR-8uL" secondAttribute="leading" id="mHC-98-3oh"/>
+                                    <constraint firstAttribute="bottom" secondItem="P4x-la-Thr" secondAttribute="bottom" id="tkU-vB-kGm"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7eL-z8-FSR" secondAttribute="trailing" id="3wn-pu-dIc"/>
-                            <constraint firstItem="Fcm-gR-8uL" firstAttribute="top" secondItem="7eL-z8-FSR" secondAttribute="bottom" id="91L-lC-oGg"/>
-                            <constraint firstItem="7eL-z8-FSR" firstAttribute="top" secondItem="UCF-lM-Wr0" secondAttribute="top" id="b3o-sH-JWD"/>
+                            <constraint firstItem="7eL-z8-FSR" firstAttribute="leading" secondItem="UCF-lM-Wr0" secondAttribute="leading" id="5Ce-pP-Sin"/>
+                            <constraint firstItem="Fcm-gR-8uL" firstAttribute="leading" secondItem="UCF-lM-Wr0" secondAttribute="leading" id="7fp-sH-RHB"/>
+                            <constraint firstAttribute="trailing" secondItem="Fcm-gR-8uL" secondAttribute="trailing" id="LRo-7w-892"/>
+                            <constraint firstItem="Fcm-gR-8uL" firstAttribute="top" secondItem="7eL-z8-FSR" secondAttribute="bottom" id="bSP-rr-uuR"/>
+                            <constraint firstAttribute="trailing" secondItem="7eL-z8-FSR" secondAttribute="trailing" id="baE-t5-vTE"/>
                             <constraint firstAttribute="trailing" secondItem="Fcm-gR-8uL" secondAttribute="trailing" id="hC0-GH-WJP"/>
-                            <constraint firstItem="7eL-z8-FSR" firstAttribute="leading" secondItem="UCF-lM-Wr0" secondAttribute="leading" id="iLk-55-AT8"/>
                             <constraint firstItem="ZbC-Mh-bQD" firstAttribute="top" secondItem="Fcm-gR-8uL" secondAttribute="bottom" id="iZx-V3-Gty"/>
                             <constraint firstItem="Fcm-gR-8uL" firstAttribute="leading" secondItem="UCF-lM-Wr0" secondAttribute="leading" id="lGw-6g-xsP"/>
+                            <constraint firstItem="7eL-z8-FSR" firstAttribute="top" secondItem="Px0-wr-ZYK" secondAttribute="bottom" id="wwv-1W-EwL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="hC0-GH-WJP"/>
+                                <exclude reference="lGw-6g-xsP"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="6LU-Qp-una">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="fMK-fd-5O5">
@@ -575,7 +588,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="133" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdJ-Yg-Yd2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdJ-Yg-Yd2" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="8" y="8" width="29" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -596,8 +609,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="ZmK-Fa-W8O" id="heC-Ws-lby"/>
                         <outlet property="charCountLabel" destination="cdJ-Yg-Yd2" id="qLF-Gu-d0k"/>
-                        <outlet property="tweetTextField" destination="Fcm-gR-8uL" id="wCG-vf-R7p"/>
+                        <outlet property="tweetButton" destination="ZmK-Fa-W8O" id="EcJ-Iy-7tB"/>
+                        <outlet property="tweetTextView" destination="P4x-la-Thr" id="uZz-eB-jC4"/>
                         <outlet property="userNameLabel" destination="uFc-oU-pi8" id="CHq-qa-hu7"/>
                         <outlet property="userScreennameLabel" destination="ifm-QL-sLl" id="bk7-dU-aYS"/>
                         <outlet property="userThumbnailImage" destination="pK6-Wc-OIe" id="Wo6-e7-QGA"/>

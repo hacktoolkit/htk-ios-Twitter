@@ -42,7 +42,7 @@ Time spent: 17 hours
 
 '''Optional User Stories'''
 
-* Optional: When composing, you should have a countdown in the upper right for the tweet limit.
+* [x] When composing, you should have a countdown in the upper right for the Tweet limit. Turns red and prevents posting Tweet when it exceeds the limit.
 * Optional: After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 * Optional: Retweeting and favoriting should increment the retweet and favorite count.
 * Optional: User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
