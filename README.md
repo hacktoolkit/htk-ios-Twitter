@@ -30,6 +30,8 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ### Part 1 - Basic Twitter Client
 
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
+
 Time spent: 26 hours
 
 **Core User Stories**
@@ -52,6 +54,10 @@ Time spent: 26 hours
 * [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Part 2 - Twitter Redux
+
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
+
+Time spent: 3 hours
 
 * Hamburger menu
   * Dragging anywhere in the view should reveal the menu.

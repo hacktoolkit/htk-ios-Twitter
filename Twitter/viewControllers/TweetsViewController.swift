@@ -146,6 +146,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onLogout(sender: AnyObject) {
         TwitterUser.currentUser?.logout()
     }
+
+    @IBAction func onUserThumbnailTap(sender: UITapGestureRecognizer) {
+        println("user image tapped")
+    }
+
     /*
     // MARK: - Navigation
 
