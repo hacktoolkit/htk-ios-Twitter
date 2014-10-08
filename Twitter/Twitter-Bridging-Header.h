@@ -13,3 +13,4 @@
 // Other dependencies
 #import "NSDate+PrettyTimestamp.h"
 #import "TTTAttributedLabel.h"
+#import "NSString+FontAwesome.h"

@@ -79,3 +79,12 @@ Time spent: 6 hours
   * [wip] Tap account to switch to
   * [wip] Include a plus button to Add an Account
   * [wip] Swipe to delete an account
+
+### License
+
+See `LICENSE`
+
+* The Font Awesome font is licensed under the SIL OFL 1.1:
+  * <http://scripts.sil.org/OFL>
+* Font Awesome by Dave Gandy - <http://fontawesome.io>
+  * Full details: <http://fontawesome.io/license>

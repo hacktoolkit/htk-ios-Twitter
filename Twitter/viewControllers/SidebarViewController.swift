@@ -10,6 +10,7 @@ import UIKit
 
 class SidebarViewController: UIViewController {
 
+    @IBOutlet weak var faTest: UILabel!
     @IBOutlet weak var sidebarView: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var homeButton: UIButton!
@@ -45,6 +46,8 @@ class SidebarViewController: UIViewController {
         // Do any additional setup after loading the view.
         hideMenu()
         self.activeViewController = self.viewControllers["Profile"]
+        faTest.font = UIFont(name: "FontAwesome", size: 20)
+        faTest.text = NSString.awesomeIcon(FaTwitter)
     }
 
     override func didReceiveMemoryWarning() {

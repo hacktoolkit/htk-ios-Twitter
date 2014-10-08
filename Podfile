@@ -11,3 +11,4 @@ pod 'TTTAttributedLabel'
 
 # Other Pod dependencies
 pod 'PrettyTimestamp'
+pod 'FontAwesome-iOS'

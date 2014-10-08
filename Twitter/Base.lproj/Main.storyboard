@@ -808,12 +808,20 @@
                                                     <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="WN5-wI-cH0"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v4-h8-Dda">
+                                                <rect key="frame" x="69" y="8" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="YO9-lH-328" firstAttribute="leading" secondItem="Zgh-LW-lsL" secondAttribute="leading" id="6md-aA-63J"/>
                                             <constraint firstAttribute="height" constant="125" id="Ych-MR-0XT"/>
+                                            <constraint firstItem="1v4-h8-Dda" firstAttribute="top" secondItem="Zgh-LW-lsL" secondAttribute="top" constant="5" id="Zzc-kc-VDr"/>
                                             <constraint firstItem="1H9-BW-gKj" firstAttribute="top" secondItem="YO9-lH-328" secondAttribute="bottom" constant="20" id="fS5-6T-QCx"/>
+                                            <constraint firstItem="1v4-h8-Dda" firstAttribute="leading" secondItem="YO9-lH-328" secondAttribute="trailing" constant="5" id="h7I-KI-Nxj"/>
                                             <constraint firstItem="1H9-BW-gKj" firstAttribute="leading" secondItem="Zgh-LW-lsL" secondAttribute="leading" id="hD7-Ss-xGB"/>
                                             <constraint firstItem="YO9-lH-328" firstAttribute="top" secondItem="Zgh-LW-lsL" secondAttribute="top" id="iUQ-eI-W65"/>
                                             <constraint firstItem="9eA-gL-NCz" firstAttribute="top" secondItem="YO9-lH-328" secondAttribute="bottom" constant="5" id="yQT-T2-T42"/>
@@ -863,6 +871,7 @@
                     <connections>
                         <outlet property="contentView" destination="awh-af-HJN" id="Ffy-3y-lL6"/>
                         <outlet property="contentViewXConstraint" destination="n2Z-FF-tTg" id="gSi-nM-pey"/>
+                        <outlet property="faTest" destination="1v4-h8-Dda" id="hjG-c0-fti"/>
                         <outlet property="homeButton" destination="9eA-gL-NCz" id="1aa-CJ-Ner"/>
                         <outlet property="profileButton" destination="1H9-BW-gKj" id="Cop-bi-E6b"/>
                         <outlet property="sidebarView" destination="Eg9-W1-aed" id="Xmf-mw-TFs"/>
