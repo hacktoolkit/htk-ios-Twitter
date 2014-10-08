@@ -849,7 +849,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awh-af-HJN" userLabel="Content View">
-                                <rect key="frame" x="160" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="180" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -863,7 +863,7 @@
                             <constraint firstItem="Eg9-W1-aed" firstAttribute="top" secondItem="CTh-XC-ODZ" secondAttribute="top" id="9Md-E4-MoI"/>
                             <constraint firstItem="awh-af-HJN" firstAttribute="height" secondItem="CTh-XC-ODZ" secondAttribute="height" id="Aah-Wv-7dc"/>
                             <constraint firstAttribute="centerY" secondItem="awh-af-HJN" secondAttribute="centerY" id="c4N-iY-9FZ"/>
-                            <constraint firstAttribute="centerX" secondItem="awh-af-HJN" secondAttribute="centerX" constant="-160" id="n2Z-FF-tTg"/>
+                            <constraint firstAttribute="centerX" secondItem="awh-af-HJN" secondAttribute="centerX" constant="-180" id="n2Z-FF-tTg"/>
                             <constraint firstItem="0mx-tp-FN5" firstAttribute="top" secondItem="Eg9-W1-aed" secondAttribute="bottom" id="o86-II-5ME"/>
                             <constraint firstItem="Eg9-W1-aed" firstAttribute="leading" secondItem="CTh-XC-ODZ" secondAttribute="leading" id="zqZ-4i-f6a"/>
                         </constraints>
