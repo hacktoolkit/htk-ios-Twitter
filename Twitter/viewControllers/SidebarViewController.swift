@@ -48,10 +48,8 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Do any additional setup after loading the view.
         hideMenu()
         self.initializeChildViewControllers()
-        self.activeViewController = self.viewControllers["Profile"]
         self.renderSidebar()
-        //        faTest.font = UIFont(name: "FontAwesome", size: 20)
-//        faTest.text = NSString.awesomeIcon(FaTwitter)
+        self.activateViewControllerForKey("Home")
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,10 +58,13 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     private func initializeChildViewControllers() {
-        self.viewControllers = [
-            "Home" : initializeChildViewControllerWithIdentifier("TweetsViewController"),
-            "Profile" : initializeChildViewControllerWithIdentifier("ProfileViewController"),
-        ]
+        var viewControllers = [String:UIViewController]()
+        for menuItemSetting in MENU_ITEMS_SETTINGS {
+            var key = menuItemSetting["key"]!
+            var viewControllerName = menuItemSetting["viewController"]!
+            viewControllers[key] = initializeChildViewControllerWithIdentifier(viewControllerName)
+        }
+        self.viewControllers = viewControllers
     }
 
     private func initializeChildViewControllerWithIdentifier(identifier: String) -> TwitterViewController {
@@ -80,6 +81,17 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.userScreennameLabel.text = "@\(currentUser.screenname!)"
             self.userTaglineLabel.text = currentUser.tagline!
         }
+        self.generateMenuItems()
+    }
+
+    private func generateMenuItems() {
+        var menuItems = [SidebarMenuItem]()
+
+        for menuItemSetting in MENU_ITEMS_SETTINGS {
+            var menuItem = SidebarMenuItem(settings: menuItemSetting)
+            menuItems.append(menuItem)
+        }
+        self.menuItems = menuItems
     }
 
     private func showMenu() {
@@ -90,16 +102,9 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.contentViewXConstraint.constant = 0
     }
 
-//    @IBAction func didTapSidebarButton(sender: UIButton) {
-//        hideMenu()
-//        if sender == homeButton {
-//           NSLog("Home Button")
-//            self.activeViewController = self.viewControllers["Home"]
-//        } else if sender == profileButton {
-//            NSLog("Profile Button")
-//            self.activeViewController = self.viewControllers["Profile"]
-//        }
-//    }
+    private func activateViewControllerForKey(key: String) {
+        self.activeViewController = self.viewControllers[key]!
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numRows = self.menuItems.count
@@ -116,6 +121,8 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         var menuItem = self.menuItems[indexPath.row]
+        self.activateViewControllerForKey(menuItem.key)
+        hideMenu()
     }
 
     @IBAction func didSwipeOverContentView(sender: UISwipeGestureRecognizer) {

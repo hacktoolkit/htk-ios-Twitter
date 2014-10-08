@@ -837,16 +837,40 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-A9-eJ5" userLabel="Menu Items Table View">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-A9-eJ5" userLabel="Menu Items Table View">
                                         <rect key="frame" x="5" y="135" width="170" height="396"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SidebarMenuItemCell" rowHeight="60" id="e97-Qo-aJW" customClass="SidebarMenuItemCell" customModule="Twitter" customModuleProvider="target">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SidebarMenuItemCell" rowHeight="35" id="e97-Qo-aJW" customClass="SidebarMenuItemCell" customModule="Twitter" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e97-Qo-aJW" id="m0o-xl-ZKz">
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ICO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEh-GK-ngi">
+                                                            <rect key="frame" x="5" y="5" width="29" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9b-kD-nYg">
+                                                            <rect key="frame" x="39" y="5" width="125" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="T9b-kD-nYg" firstAttribute="leading" secondItem="gEh-GK-ngi" secondAttribute="trailing" constant="5" id="79K-Jm-KHg"/>
+                                                        <constraint firstItem="gEh-GK-ngi" firstAttribute="leading" secondItem="m0o-xl-ZKz" secondAttribute="leading" constant="5" id="S6j-08-IyL"/>
+                                                        <constraint firstItem="gEh-GK-ngi" firstAttribute="top" secondItem="m0o-xl-ZKz" secondAttribute="top" constant="5" id="vTb-Bf-AXm"/>
+                                                        <constraint firstItem="T9b-kD-nYg" firstAttribute="top" secondItem="m0o-xl-ZKz" secondAttribute="top" constant="5" id="xU8-tb-XI0"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="menuItemIcon" destination="gEh-GK-ngi" id="eLa-00-PXw"/>
+                                                    <outlet property="menuItemLabel" destination="T9b-kD-nYg" id="5MK-9r-c5P"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -855,7 +879,7 @@
                                         </connections>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="2gu-pQ-aDv"/>

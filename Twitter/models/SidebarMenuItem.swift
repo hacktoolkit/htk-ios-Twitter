@@ -9,5 +9,16 @@
 import Foundation
 
 class SidebarMenuItem {
+    var name: String
+    var icon: String
+    var key: String
+    var viewControllerName: String
+
+    init(settings: [String:String]) {
+        self.name = settings["name"]!
+        self.icon = settings["icon"]!
+        self.key = settings["key"]!
+        self.viewControllerName = settings["viewController"]!
+    }
     
 }

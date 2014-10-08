@@ -10,9 +10,14 @@ import UIKit
 
 class SidebarMenuItemCell: UITableViewCell {
 
+    @IBOutlet weak var menuItemIcon: UILabel!
+    @IBOutlet weak var menuItemLabel: UILabel!
+
     var menuItem:SidebarMenuItem! {
         willSet(newMenuItem) {
-            
+            self.menuItemIcon.font = UIFont(name: "FontAwesome", size: 20)
+            self.menuItemIcon.text = newMenuItem.icon
+            self.menuItemLabel.text = newMenuItem.name
         }
 
         didSet(oldMenuItem) {

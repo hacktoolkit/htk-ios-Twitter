@@ -26,3 +26,32 @@ let FAVORITE_HOVER_IMAGE = UIImage(named: "favorite_hover")
 // Globals
 
 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+// Menu Items
+
+let MENU_ITEMS_SETTINGS: [[String:String]] = [
+    [
+        "name" : "Home Timeline",
+        "icon" : NSString.awesomeIcon(FaTwitter),
+        "key" : "Home",
+        "viewController" : "TweetsViewController",
+    ],
+    [
+        "name" : "Profile",
+        "icon" : NSString.awesomeIcon(FaUser),
+        "key" : "Profile",
+        "viewController" : "ProfileViewController",
+    ],
+    [
+        "name" : "Mentions",
+        "icon" : NSString.awesomeIcon(FaCommentO),
+        "key" : "Mentions",
+        "viewController" : "ProfileViewController",
+    ],
+    [
+        "name" : "Settings",
+        "icon" : NSString.awesomeIcon(FaCog),
+        "key" : "Settings",
+        "viewController" : "ProfileViewController",
+    ],
+]
