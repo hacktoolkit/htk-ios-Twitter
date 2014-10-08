@@ -55,27 +55,27 @@ Time spent: 26 hours
 
 ### Part 2 - Twitter Redux
 
-![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap_20141007.gif)
 
-Time spent: 3 hours
+Time spent: 6 hours
 
-* Hamburger menu
-  * Dragging anywhere in the view should reveal the menu.
-  * The menu should include links to your profile, the home timeline, and the mentions view.
-  * The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+* [wip] Hamburger menu
+  * [wip] Dragging anywhere in the view should reveal the menu.
+  * [wip] The menu should include links to your profile, the home timeline, and the mentions view.
+  * [wip] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
 
-* Profile page
-  * Contains the user header view
-  * Contains a section with the users basic stats: # tweets, # following, # followers
-  * Optional: Implement the paging view for the user description.
-  * Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
-  * Optional: Pulling down the profile page should blur and resize the header image.
+* [wip] Profile page
+  * [wip] Contains the user header view
+  * [wip] Contains a section with the users basic stats: # tweets, # following, # followers
+  * [wip] Optional: Implement the paging view for the user description.
+  * [wip] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+  * [wip] Optional: Pulling down the profile page should blur and resize the header image.
 
-* Home Timeline
-  * Tapping on a user image should bring up that user's profile page
+* [wip] Home Timeline
+  * [wip] Tapping on a user image should bring up that user's profile page
 
-* Optional: Account switching
-  * Long press on tab bar to bring up Account view with animation
-  * Tap account to switch to
-  * Include a plus button to Add an Account
-  * Swipe to delete an account
+* [wip] Optional: Account switching
+  * [wip] Long press on tab bar to bring up Account view with animation
+  * [wip] Tap account to switch to
+  * [wip] Include a plus button to Add an Account
+  * [wip] Swipe to delete an account
