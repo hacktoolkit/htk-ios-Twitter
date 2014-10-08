@@ -30,7 +30,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: tableView is nil at this point, for some reason
-        println("test")
+        NSLog("test")
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -98,7 +98,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                     callback: tweetsCallback
                 )
             } else {
-                println("No current user")
+                NSLog("No current user")
             }
         }
     }
@@ -148,7 +148,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     @IBAction func onUserThumbnailTap(sender: UITapGestureRecognizer) {
-        println("user image tapped")
+        NSLog("user image tapped")
     }
 
     /*

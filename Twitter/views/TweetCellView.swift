@@ -98,18 +98,18 @@ class TweetCellView: UITableViewCell {
 
     @IBAction func onControlButton(sender: UIButton) {
         if sender == replyButton {
-            println("Reply button")
+            NSLog("Reply button")
 //            doReply()
         } else if sender == retweetButton {
-            println("Retweet button")
+            NSLog("Retweet button")
             // TODO: pass in a callback to revert the optimistic image update
             self.tweet.toggleRetweet({})
         } else if sender == favoriteButton {
-            println("Favorite button")
+            NSLog("Favorite button")
             // TODO: pass in a callback to revert the optimistic image update
             self.tweet.toggleFavorite({})
         } else {
-            println("Unknown button")
+            NSLog("Unknown button")
         }
         self.updateButtonImages()
     }

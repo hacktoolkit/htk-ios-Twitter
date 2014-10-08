@@ -8,6 +8,10 @@
 
 import Foundation
 
+let SIDEBAR_MENU_WIDTH = 160
+
+// Images
+
 let REPLY_NORMAL_IMAGE = UIImage(named: "reply")
 let REPLY_HOVER_IMAGE = UIImage(named: "reply_hover")
 
@@ -18,3 +22,7 @@ let RETWEET_HOVER_IMAGE = UIImage(named: "retweet_hover")
 let FAVORITE_NORMAL_IMAGE = UIImage(named: "favorite")
 let FAVORITE_ON_IMAGE = UIImage(named: "favorite_on")
 let FAVORITE_HOVER_IMAGE = UIImage(named: "favorite_hover")
+
+// Globals
+
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)

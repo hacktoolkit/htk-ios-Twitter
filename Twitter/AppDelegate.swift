@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if TwitterUser.currentUser != nil {
             // Go to the logged in screen
-            println("Current user detected: \(TwitterUser.currentUser?.name)")
+            NSLog("Current user detected: \(TwitterUser.currentUser?.name)")
             var vc = storyboard.instantiateViewControllerWithIdentifier("SidebarViewController") as UIViewController
             window?.rootViewController = vc
         }

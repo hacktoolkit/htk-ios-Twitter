@@ -8,8 +8,6 @@
 
 import UIKit
 
-let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
 class SidebarViewController: UIViewController {
 
     @IBOutlet weak var sidebarView: UIView!
@@ -57,17 +55,17 @@ class SidebarViewController: UIViewController {
     @IBAction func didTapSidebarButton(sender: UIButton) {
         self.contentViewXConstraint.constant = 0
         if sender == homeButton {
-           println("Home Button")
+           NSLog("Home Button")
             self.activeViewController = self.viewControllers["Nav"]
         } else if sender == profileButton {
-            println("Profile Button")
+            NSLog("Profile Button")
             self.activeViewController = self.viewControllers["Nav"]
         }
     }
 
     @IBAction func didSwipeOverContentView(sender: UISwipeGestureRecognizer) {
         if sender.state == .Ended {
-            self.contentViewXConstraint.constant = -160
+            self.contentViewXConstraint.constant = -CGFloat(SIDEBAR_MENU_WIDTH)
         }
     }
 
