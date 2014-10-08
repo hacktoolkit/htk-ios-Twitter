@@ -780,29 +780,65 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg9-W1-aed" userLabel="Sidebar View">
                                 <rect key="frame" x="0.0" y="0.0" width="180" height="600"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-BW-gKj">
-                                        <rect key="frame" x="21" y="171" width="44" height="30"/>
-                                        <state key="normal" title="Profile">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="WN5-wI-cH0"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-gL-NCz">
-                                        <rect key="frame" x="24" y="133" width="41" height="30"/>
-                                        <state key="normal" title="Home">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="k8U-4q-TTA"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgh-LW-lsL" userLabel="User Heading View">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="125"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YO9-lH-328" userLabel="User Thumbnail Image View">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="oho-54-bdk"/>
+                                                    <constraint firstAttribute="width" constant="60" id="xYg-tX-Q4E"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-gL-NCz">
+                                                <rect key="frame" x="0.0" y="65" width="41" height="30"/>
+                                                <state key="normal" title="Home">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="k8U-4q-TTA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-BW-gKj">
+                                                <rect key="frame" x="0.0" y="80" width="44" height="30"/>
+                                                <state key="normal" title="Profile">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapSidebarButton:" destination="CKn-CP-YnJ" eventType="touchUpInside" id="WN5-wI-cH0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="YO9-lH-328" firstAttribute="leading" secondItem="Zgh-LW-lsL" secondAttribute="leading" id="6md-aA-63J"/>
+                                            <constraint firstAttribute="height" constant="125" id="Ych-MR-0XT"/>
+                                            <constraint firstItem="1H9-BW-gKj" firstAttribute="top" secondItem="YO9-lH-328" secondAttribute="bottom" constant="20" id="fS5-6T-QCx"/>
+                                            <constraint firstItem="1H9-BW-gKj" firstAttribute="leading" secondItem="Zgh-LW-lsL" secondAttribute="leading" id="hD7-Ss-xGB"/>
+                                            <constraint firstItem="YO9-lH-328" firstAttribute="top" secondItem="Zgh-LW-lsL" secondAttribute="top" id="iUQ-eI-W65"/>
+                                            <constraint firstItem="9eA-gL-NCz" firstAttribute="top" secondItem="YO9-lH-328" secondAttribute="bottom" constant="5" id="yQT-T2-T42"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-A9-eJ5">
+                                        <rect key="frame" x="10" y="135" width="160" height="455"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="2gu-pQ-aDv"/>
+                                    <constraint firstItem="h0i-A9-eJ5" firstAttribute="leading" secondItem="Eg9-W1-aed" secondAttribute="leading" constant="10" id="9UY-Un-Jxf"/>
+                                    <constraint firstItem="Zgh-LW-lsL" firstAttribute="leading" secondItem="Eg9-W1-aed" secondAttribute="leading" id="LgL-aL-ykM"/>
+                                    <constraint firstAttribute="trailing" secondItem="h0i-A9-eJ5" secondAttribute="trailing" constant="10" id="YwL-Ux-Mjz"/>
+                                    <constraint firstAttribute="bottom" secondItem="h0i-A9-eJ5" secondAttribute="bottom" constant="10" id="Zua-HV-bGM"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zgh-LW-lsL" secondAttribute="trailing" id="a24-KP-yYa"/>
+                                    <constraint firstItem="Zgh-LW-lsL" firstAttribute="top" secondItem="Eg9-W1-aed" secondAttribute="top" id="ni4-NN-aPL"/>
+                                    <constraint firstItem="h0i-A9-eJ5" firstAttribute="top" secondItem="Zgh-LW-lsL" secondAttribute="bottom" constant="10" id="ntE-wc-CYm"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="S17-iH-rO9" appends="YES" id="2Ke-NM-td8"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awh-af-HJN" userLabel="Content View">
                                 <rect key="frame" x="160" y="0.0" width="600" height="600"/>
@@ -838,8 +874,9 @@
                         <action selector="didSwipeOverContentView:" destination="CKn-CP-YnJ" id="S31-rT-jLN"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="S17-iH-rO9"/>
             </objects>
-            <point key="canvasLocation" x="-788" y="341"/>
+            <point key="canvasLocation" x="-871" y="341"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="OJU-cK-vpO">
