@@ -13,7 +13,7 @@ enum TweetsViewMode {
     case User
 }
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: TwitterViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak private var tableView: UITableView!
 

@@ -8,20 +8,22 @@
 
 import UIKit
 
-class SidebarViewController: UIViewController {
+class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var faTest: UILabel!
-    @IBOutlet weak var sidebarView: UIView!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var homeButton: UIButton!
-    @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var contentViewXConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var sidebarView: UIView!
+    @IBOutlet weak private var contentView: UIView!
+    @IBOutlet weak private var contentViewXConstraint: NSLayoutConstraint!
 
-    var viewControllers: [String: UIViewController] = [
-        "Nav" : mainStoryboard.instantiateViewControllerWithIdentifier("TwitterNavigationController") as TwitterNavigationController,
-        "Home" : mainStoryboard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController,
-        "Profile" : mainStoryboard.instantiateViewControllerWithIdentifier("ProfileViewController") as ProfileViewController,
-    ]
+    @IBOutlet weak var userHeadingView: UIView!
+    @IBOutlet weak var userThumbnailImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userScreennameLabel: UILabel!
+    @IBOutlet weak var userTaglineLabel: UILabel!
+
+    @IBOutlet weak var menuItemsTableView: UITableView!
+
+    private var viewControllers = [String: UIViewController]()
+    private var menuItems = [SidebarMenuItem]()
 
     var activeViewController: UIViewController? {
         didSet(oldViewControllerOrNil) {
@@ -45,9 +47,11 @@ class SidebarViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         hideMenu()
+        self.initializeChildViewControllers()
         self.activeViewController = self.viewControllers["Profile"]
-        faTest.font = UIFont(name: "FontAwesome", size: 20)
-        faTest.text = NSString.awesomeIcon(FaTwitter)
+        self.renderSidebar()
+        //        faTest.font = UIFont(name: "FontAwesome", size: 20)
+//        faTest.text = NSString.awesomeIcon(FaTwitter)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,23 +59,63 @@ class SidebarViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func showMenu() {
+    private func initializeChildViewControllers() {
+        self.viewControllers = [
+            "Home" : initializeChildViewControllerWithIdentifier("TweetsViewController"),
+            "Profile" : initializeChildViewControllerWithIdentifier("ProfileViewController"),
+        ]
+    }
+
+    private func initializeChildViewControllerWithIdentifier(identifier: String) -> TwitterViewController {
+        var vc = mainStoryboard.instantiateViewControllerWithIdentifier(identifier) as TwitterViewController
+        vc.setSidebarViewController(self)
+        return vc
+    }
+
+    private func renderSidebar() {
+        var currentUser = TwitterUser.currentUser
+        if let currentUser = currentUser {
+            HTKImageUtils.sharedInstance.displayImageUrl(currentUser.profileImageUrl!, imageView: self.userThumbnailImage)
+            self.userNameLabel.text = currentUser.name!
+            self.userScreennameLabel.text = "@\(currentUser.screenname!)"
+            self.userTaglineLabel.text = currentUser.tagline!
+        }
+    }
+
+    private func showMenu() {
         self.contentViewXConstraint.constant = -CGFloat(SIDEBAR_MENU_WIDTH)
     }
 
-    func hideMenu() {
+    private func hideMenu() {
         self.contentViewXConstraint.constant = 0
     }
 
-    @IBAction func didTapSidebarButton(sender: UIButton) {
-        hideMenu()
-        if sender == homeButton {
-           NSLog("Home Button")
-            self.activeViewController = self.viewControllers["Nav"]
-        } else if sender == profileButton {
-            NSLog("Profile Button")
-            self.activeViewController = self.viewControllers["Nav"]
-        }
+//    @IBAction func didTapSidebarButton(sender: UIButton) {
+//        hideMenu()
+//        if sender == homeButton {
+//           NSLog("Home Button")
+//            self.activeViewController = self.viewControllers["Home"]
+//        } else if sender == profileButton {
+//            NSLog("Profile Button")
+//            self.activeViewController = self.viewControllers["Profile"]
+//        }
+//    }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var numRows = self.menuItems.count
+        return numRows
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var menuItemCell = tableView.dequeueReusableCellWithIdentifier("SidebarMenuItemCell") as SidebarMenuItemCell
+        var menuItem = self.menuItems[indexPath.row]
+        menuItemCell.menuItem = menuItem
+        return menuItemCell
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        var menuItem = self.menuItems[indexPath.row]
     }
 
     @IBAction func didSwipeOverContentView(sender: UISwipeGestureRecognizer) {

@@ -57,7 +57,7 @@ Time spent: 26 hours
 
 ![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap.gif)
 
-Time spent: 6 hours
+Time spent: 12 hours
 
 * [wip] Hamburger menu
   * [wip] Dragging anywhere in the view should reveal the menu.

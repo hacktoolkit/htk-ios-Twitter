@@ -1,14 +1,17 @@
 //
-//  ProfileViewController.swift
+//  TwitterViewController.swift
 //  Twitter
 //
-//  Created by Jonathan Tsai on 10/4/14.
+//  Created by Jonathan Tsai on 10/8/14.
 //  Copyright (c) 2014 Hacktoolkit. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: TwitterViewController {
+// This is the base view controller for all our non-navigation view controllers
+class TwitterViewController: UIViewController {
+
+    var sidebarViewController: SidebarViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,10 @@ class ProfileViewController: TwitterViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func setSidebarViewController(sidebarViewController: SidebarViewController) {
+        self.sidebarViewController = sidebarViewController
+    }
 
     /*
     // MARK: - Navigation

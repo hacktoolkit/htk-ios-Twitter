@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetDetailsViewController: UIViewController {
+class TweetDetailsViewController: TwitterViewController {
     let RETWEET_VIEW_HEIGHT = 15
 
     @IBOutlet weak var retweetView: UIView!
