@@ -15,7 +15,7 @@ enum TweetsViewMode {
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
 
     var refreshControl: UIRefreshControl?
 
@@ -67,6 +67,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.IS_LOADING = true
         var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+        // construct the callback
         var tweetsCallback = {
             (tweets: [Tweet]?, error: NSError?) -> Void in
             self.IS_LOADING = false
@@ -84,6 +86,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
         }
+
+        // actually make the network call
         switch self.viewMode {
         case TweetsViewMode.Home:
             TwitterClient.sharedInstance.getHomeTimelineWithParams(

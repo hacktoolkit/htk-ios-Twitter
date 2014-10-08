@@ -9,14 +9,14 @@
 import UIKit
 
 class ComposeTweetViewController: UIViewController, UITextViewDelegate {
-    @IBOutlet weak var charCountLabel: TTTAttributedLabel!
-    @IBOutlet weak var userThumbnailImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userScreennameLabel: UILabel!
-    @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak private var charCountLabel: TTTAttributedLabel!
+    @IBOutlet weak private var userThumbnailImage: UIImageView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userScreennameLabel: UILabel!
+    @IBOutlet weak private var tweetTextView: UITextView!
 
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var tweetButton: UIButton!
+    @IBOutlet weak private var cancelButton: UIButton!
+    @IBOutlet weak private var tweetButton: UIButton!
 
     var replyTweet: Tweet! {
         willSet(newTweet) {

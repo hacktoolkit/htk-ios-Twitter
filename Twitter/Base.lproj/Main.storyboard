@@ -778,7 +778,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg9-W1-aed" userLabel="Sidebar View">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-BW-gKj">
                                         <rect key="frame" x="21" y="171" width="44" height="30"/>
@@ -801,7 +801,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="2gu-pQ-aDv"/>
+                                    <constraint firstAttribute="width" constant="180" id="2gu-pQ-aDv"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awh-af-HJN" userLabel="Content View">
