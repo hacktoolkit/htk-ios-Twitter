@@ -55,7 +55,7 @@ Time spent: 26 hours
 
 ### Part 2 - Twitter Redux
 
-![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap_20141007.gif)
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap.gif)
 
 Time spent: 6 hours
 
