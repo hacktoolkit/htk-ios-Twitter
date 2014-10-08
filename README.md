@@ -3,7 +3,7 @@ htk-ios-Twitter
 
 This is a basic Twitter client.
 
-[CodePath iOS Bootcamp](http://codepath.com/iosbootcamp) September 2014 - Week 3 Project
+[CodePath iOS Bootcamp](http://codepath.com/iosbootcamp) September 2014 - Week 3 & 4 Project
 
 ## GIF Screen Cap
 
