@@ -7,7 +7,7 @@
         <!--Tweets View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="TweetsViewController" id="vXZ-lx-hvc" userLabel="Tweets View Controller" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vXZ-lx-hvc" userLabel="Tweets View Controller" customClass="TweetsViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -35,7 +35,7 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q9V-a7-v2h">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="Q9V-a7-v2h">
                                                             <rect key="frame" x="44" y="0.0" width="16" height="16"/>
                                                         </imageView>
                                                     </subviews>
@@ -56,10 +56,14 @@
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gpJ-y7-qaq">
                                                     <rect key="frame" x="10" y="35" width="60" height="60"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Tev-5h-LCI"/>
                                                         <constraint firstAttribute="width" constant="60" id="ul6-ZX-8HJ"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="brm-wU-tEa" appends="YES" id="Rli-nf-ti5"/>
+                                                    </connections>
                                                 </imageView>
                                                 <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF7-gG-xaN" userLabel="Tweet Heading View">
                                                     <rect key="frame" x="80" y="35" width="510" height="30"/>
@@ -114,7 +118,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="Xm9-zu-IRs"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="reply.png">
+                                                            <state key="normal" title="Button" image="reply">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -127,7 +131,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="TCa-dE-43Z"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="retweet.png">
+                                                            <state key="normal" title="Button" image="retweet">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -140,7 +144,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="u98-Dm-sZg"/>
                                                             </constraints>
-                                                            <state key="normal" title="Button" image="favorite.png">
+                                                            <state key="normal" title="Button" image="favorite">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -275,13 +279,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="brm-wU-tEa">
+                    <connections>
+                        <action selector="onUserThumbnailTap:" destination="vXZ-lx-hvc" id="MaI-vO-bdv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="765" y="-384"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="4og-Tx-MhY">
             <objects>
-                <viewController id="eSj-4Z-H5E" userLabel="Login View Controller" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eSj-4Z-H5E" userLabel="Login View Controller" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O68-2d-G5J"/>
                         <viewControllerLayoutGuide type="bottom" id="pVz-70-D0I"/>
@@ -306,7 +315,7 @@
                                     <action selector="onLogin:" destination="eSj-4Z-H5E" eventType="touchUpInside" id="DEo-zw-gHd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="fmt-RA-CJT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue" translatesAutoresizingMaskIntoConstraints="NO" id="fmt-RA-CJT">
                                 <rect key="frame" x="200" y="89" width="200" height="163"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IdE-NN-pwf"/>
@@ -324,7 +333,7 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="Lvz-8r-nFE" id="Amu-2S-UOU"/>
-                        <segue destination="szC-y1-pQD" kind="presentation" identifier="loginSegue" id="PYn-8g-6hl"/>
+                        <segue destination="CKn-CP-YnJ" kind="presentation" identifier="loginSegue" id="Izq-pG-HY0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UL-kp-iuw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -334,7 +343,7 @@
         <!--Twitter Navigation Controller-->
         <scene sceneID="qsN-mh-zoa">
             <objects>
-                <navigationController storyboardIdentifier="TwitterNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="szC-y1-pQD" userLabel="Twitter Navigation Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TwitterNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="szC-y1-pQD" userLabel="Twitter Navigation Controller" customClass="TwitterNavigationController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cTJ-XW-Kjq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -376,7 +385,7 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet.png" translatesAutoresizingMaskIntoConstraints="NO" id="S64-C9-eKC">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet" translatesAutoresizingMaskIntoConstraints="NO" id="S64-C9-eKC">
                                         <rect key="frame" x="44" y="1" width="16" height="16"/>
                                     </imageView>
                                 </subviews>
@@ -509,7 +518,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="9vs-zD-GOC"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="reply.png">
+                                        <state key="normal" title="Button" image="reply">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -521,7 +530,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="Pfe-Bx-QpR"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="retweet.png">
+                                        <state key="normal" title="Button" image="retweet">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -533,7 +542,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="16" id="tqQ-zn-Vci"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="favorite.png">
+                                        <state key="normal" title="Button" image="favorite">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -619,7 +628,7 @@
         <!--Compose Tweet View Controller-->
         <scene sceneID="knG-Uv-NTH">
             <objects>
-                <viewController id="C6V-We-sdb" userLabel="Compose Tweet View Controller" customClass="ComposeTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComposeTweetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C6V-We-sdb" userLabel="Compose Tweet View Controller" customClass="ComposeTweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Px0-wr-ZYK"/>
                         <viewControllerLayoutGuide type="bottom" id="ZbC-Mh-bQD"/>
@@ -759,7 +768,7 @@
         <!--Sidebar View Controller-->
         <scene sceneID="EIG-J1-IzQ">
             <objects>
-                <viewController id="CKn-CP-YnJ" userLabel="Sidebar View Controller" customClass="SidebarViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SidebarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CKn-CP-YnJ" userLabel="Sidebar View Controller" customClass="SidebarViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xrI-Q4-9AT"/>
                         <viewControllerLayoutGuide type="bottom" id="0mx-tp-FN5"/>
@@ -769,7 +778,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eg9-W1-aed" userLabel="Sidebar View">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1H9-BW-gKj">
                                         <rect key="frame" x="21" y="171" width="44" height="30"/>
@@ -792,7 +801,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="2gu-pQ-aDv"/>
+                                    <constraint firstAttribute="width" constant="180" id="2gu-pQ-aDv"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awh-af-HJN" userLabel="Content View">
@@ -835,7 +844,7 @@
         <!--Profile View Controller-->
         <scene sceneID="OJU-cK-vpO">
             <objects>
-                <viewController id="QI7-83-Ijn" userLabel="Profile View Controller" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QI7-83-Ijn" userLabel="Profile View Controller" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lAk-vp-nGH"/>
                         <viewControllerLayoutGuide type="bottom" id="ZRA-YU-9Zj"/>
@@ -861,7 +870,7 @@
         <!--Compose Tweet Navigation Controller-->
         <scene sceneID="GK0-oL-uGL">
             <objects>
-                <navigationController storyboardIdentifier="ComposeTweetNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iNw-vk-n63" userLabel="Compose Tweet Navigation Controller" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ComposeTweetNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iNw-vk-n63" userLabel="Compose Tweet Navigation Controller" customClass="TwitterNavigationController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="w4i-lq-z5E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -878,9 +887,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Twitter_logo_blue.png" width="1139" height="926"/>
-        <image name="favorite.png" width="16" height="16"/>
-        <image name="reply.png" width="16" height="16"/>
-        <image name="retweet.png" width="16" height="16"/>
+        <image name="Twitter_logo_blue" width="1139" height="926"/>
+        <image name="favorite" width="16" height="16"/>
+        <image name="reply" width="16" height="16"/>
+        <image name="retweet" width="16" height="16"/>
     </resources>
 </document>

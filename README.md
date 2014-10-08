@@ -3,7 +3,7 @@ htk-ios-Twitter
 
 This is a basic Twitter client.
 
-[CodePath iOS Bootcamp](http://codepath.com/iosbootcamp) September 2014 - Week 3 Project
+[CodePath iOS Bootcamp](http://codepath.com/iosbootcamp) September 2014 - Week 3 & 4 Project
 
 ## GIF Screen Cap
 
@@ -30,6 +30,8 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ### Part 1 - Basic Twitter Client
 
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
+
 Time spent: 26 hours
 
 **Core User Stories**
@@ -52,3 +54,28 @@ Time spent: 26 hours
 * [x] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Part 2 - Twitter Redux
+
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap.gif)
+
+Time spent: 6 hours
+
+* [wip] Hamburger menu
+  * [wip] Dragging anywhere in the view should reveal the menu.
+  * [wip] The menu should include links to your profile, the home timeline, and the mentions view.
+  * [wip] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+
+* [wip] Profile page
+  * [wip] Contains the user header view
+  * [wip] Contains a section with the users basic stats: # tweets, # following, # followers
+  * [wip] Optional: Implement the paging view for the user description.
+  * [wip] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
+  * [wip] Optional: Pulling down the profile page should blur and resize the header image.
+
+* [wip] Home Timeline
+  * [wip] Tapping on a user image should bring up that user's profile page
+
+* [wip] Optional: Account switching
+  * [wip] Long press on tab bar to bring up Account view with animation
+  * [wip] Tap account to switch to
+  * [wip] Include a plus button to Add an Account
+  * [wip] Swipe to delete an account

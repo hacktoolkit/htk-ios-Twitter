@@ -11,19 +11,19 @@ import UIKit
 class TweetCellView: UITableViewCell {
     let RETWEET_VIEW_HEIGHT = 15
 
-    @IBOutlet weak var retweetView: UIView!
-    @IBOutlet weak var retweeterLabel: UILabel!
-    @IBOutlet weak var retweetViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var retweetView: UIView!
+    @IBOutlet weak private var retweeterLabel: UILabel!
+    @IBOutlet weak private var retweetViewHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var userThumbnailImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userScreennameLabel: UILabel!
-    @IBOutlet weak var shortTimestampLabel: UILabel!
-    @IBOutlet weak var tweetTextLabel: TTTAttributedLabel!
+    @IBOutlet weak private var userThumbnailImage: UIImageView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userScreennameLabel: UILabel!
+    @IBOutlet weak private var shortTimestampLabel: UILabel!
+    @IBOutlet weak private var tweetTextLabel: TTTAttributedLabel!
 
-    @IBOutlet weak var replyButton: UIButton!
-    @IBOutlet weak var retweetButton: UIButton!
-    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak private var replyButton: UIButton!
+    @IBOutlet weak private var retweetButton: UIButton!
+    @IBOutlet weak private var favoriteButton: UIButton!
 
     var tweet: Tweet! {
         willSet(newTweet) {
@@ -98,18 +98,18 @@ class TweetCellView: UITableViewCell {
 
     @IBAction func onControlButton(sender: UIButton) {
         if sender == replyButton {
-            println("Reply button")
+            NSLog("Reply button")
 //            doReply()
         } else if sender == retweetButton {
-            println("Retweet button")
+            NSLog("Retweet button")
             // TODO: pass in a callback to revert the optimistic image update
             self.tweet.toggleRetweet({})
         } else if sender == favoriteButton {
-            println("Favorite button")
+            NSLog("Favorite button")
             // TODO: pass in a callback to revert the optimistic image update
             self.tweet.toggleFavorite({})
         } else {
-            println("Unknown button")
+            NSLog("Unknown button")
         }
         self.updateButtonImages()
     }

@@ -17,8 +17,9 @@ class SidebarViewController: UIViewController {
     @IBOutlet weak var contentViewXConstraint: NSLayoutConstraint!
 
     var viewControllers: [String: UIViewController] = [
-        "Home" : TweetsViewController(nibName: nil, bundle: nil),
-        "Profile" : ProfileViewController(nibName: nil, bundle: nil),
+        "Nav" : mainStoryboard.instantiateViewControllerWithIdentifier("TwitterNavigationController") as TwitterNavigationController,
+        "Home" : mainStoryboard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController,
+        "Profile" : mainStoryboard.instantiateViewControllerWithIdentifier("ProfileViewController") as ProfileViewController,
     ]
 
     var activeViewController: UIViewController? {
@@ -54,17 +55,17 @@ class SidebarViewController: UIViewController {
     @IBAction func didTapSidebarButton(sender: UIButton) {
         self.contentViewXConstraint.constant = 0
         if sender == homeButton {
-           println("Home Button")
-            self.activeViewController = self.viewControllers["Home"]
+           NSLog("Home Button")
+            self.activeViewController = self.viewControllers["Nav"]
         } else if sender == profileButton {
-            println("Profile Button")
-            self.activeViewController = self.viewControllers["Profile"]
+            NSLog("Profile Button")
+            self.activeViewController = self.viewControllers["Nav"]
         }
     }
 
     @IBAction func didSwipeOverContentView(sender: UISwipeGestureRecognizer) {
         if sender.state == .Ended {
-            self.contentViewXConstraint.constant = -160
+            self.contentViewXConstraint.constant = -CGFloat(SIDEBAR_MENU_WIDTH)
         }
     }
 

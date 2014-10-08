@@ -15,7 +15,7 @@ enum TweetsViewMode {
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
 
     var refreshControl: UIRefreshControl?
 
@@ -30,7 +30,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // TODO: tableView is nil at this point, for some reason
-        println("test")
+        NSLog("test")
         // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -67,6 +67,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
         self.IS_LOADING = true
         var hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+        // construct the callback
         var tweetsCallback = {
             (tweets: [Tweet]?, error: NSError?) -> Void in
             self.IS_LOADING = false
@@ -84,6 +86,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 self.tableView.reloadData()
             }
         }
+
+        // actually make the network call
         switch self.viewMode {
         case TweetsViewMode.Home:
             TwitterClient.sharedInstance.getHomeTimelineWithParams(
@@ -98,7 +102,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                     callback: tweetsCallback
                 )
             } else {
-                println("No current user")
+                NSLog("No current user")
             }
         }
     }
@@ -146,6 +150,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onLogout(sender: AnyObject) {
         TwitterUser.currentUser?.logout()
     }
+
+    @IBAction func onUserThumbnailTap(sender: UITapGestureRecognizer) {
+        NSLog("user image tapped")
+    }
+
     /*
     // MARK: - Navigation
 
