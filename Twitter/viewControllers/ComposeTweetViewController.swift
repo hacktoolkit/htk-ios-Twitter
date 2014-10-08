@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComposeTweetViewController: UIViewController, UITextViewDelegate {
+class ComposeTweetViewController: TwitterViewController, UITextViewDelegate {
     @IBOutlet weak private var charCountLabel: TTTAttributedLabel!
     @IBOutlet weak private var userThumbnailImage: UIImageView!
     @IBOutlet weak private var userNameLabel: UILabel!

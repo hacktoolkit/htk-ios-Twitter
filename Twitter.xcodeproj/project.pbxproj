@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5648AAF119E5F42600FF91BB /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648AAF019E5F42600FF91BB /* MentionsViewController.swift */; };
+		5648AAF319E5F43500FF91BB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648AAF219E5F43500FF91BB /* SettingsViewController.swift */; };
 		56C1039B19E4ED1B0068E380 /* TwitterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */; };
 		56C1039D19E4F0200068E380 /* TwitterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1039C19E4F0200068E380 /* TwitterConstants.swift */; };
+		56C103A819E5B6790068E380 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56C103A319E5B6790068E380 /* FontAwesome.otf */; };
+		56C103AA19E5C89D0068E380 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C103A919E5C89D0068E380 /* TwitterViewController.swift */; };
+		56C103AE19E5D7320068E380 /* SidebarMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C103AD19E5D7320068E380 /* SidebarMenuItemCell.swift */; };
+		56C103B119E5D8F20068E380 /* SidebarMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C103B019E5D8F20068E380 /* SidebarMenuItem.swift */; };
 		56C27E5E19E0B68700AE1338 /* SidebarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */; };
 		56C27E6019E0B6E400AE1338 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */; };
 		56C3221919DB535200E3FD6E /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */; };
@@ -55,8 +61,14 @@
 
 /* Begin PBXFileReference section */
 		2533AC282C45176BB13A0F94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5648AAF019E5F42600FF91BB /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MentionsViewController.swift; path = viewControllers/MentionsViewController.swift; sourceTree = "<group>"; };
+		5648AAF219E5F43500FF91BB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = viewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterNavigationController.swift; path = viewControllers/TwitterNavigationController.swift; sourceTree = "<group>"; };
 		56C1039C19E4F0200068E380 /* TwitterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
+		56C103A319E5B6790068E380 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = fonts/FontAwesome.otf; sourceTree = "<group>"; };
+		56C103A919E5C89D0068E380 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterViewController.swift; path = viewControllers/TwitterViewController.swift; sourceTree = "<group>"; };
+		56C103AD19E5D7320068E380 /* SidebarMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarMenuItemCell.swift; path = views/SidebarMenuItemCell.swift; sourceTree = "<group>"; };
+		56C103B019E5D8F20068E380 /* SidebarMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarMenuItem.swift; path = models/SidebarMenuItem.swift; sourceTree = "<group>"; };
 		56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SidebarViewController.swift; path = viewControllers/SidebarViewController.swift; sourceTree = "<group>"; };
 		56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = viewControllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		56C3221819DB535200E3FD6E /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeTweetViewController.swift; path = viewControllers/ComposeTweetViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +135,22 @@
 				EA89BA7EF599453A6A8464DE /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		56C1039E19E5B65D0068E380 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				56C103A319E5B6790068E380 /* FontAwesome.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
+		56C103AF19E5D8DE0068E380 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				56C103B019E5D8F20068E380 /* SidebarMenuItem.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		56C4510F19DAB7E500551220 /* Hacktoolkit */ = {
@@ -242,6 +270,7 @@
 		56E0827519D5AE3A0099A356 = {
 			isa = PBXGroup;
 			children = (
+				56C1039E19E5B65D0068E380 /* fonts */,
 				56C4510F19DAB7E500551220 /* Hacktoolkit */,
 				56E0828019D5AE3A0099A356 /* Twitter */,
 				56E0829619D5AE3A0099A356 /* TwitterTests */,
@@ -263,6 +292,7 @@
 		56E0828019D5AE3A0099A356 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				56C103AF19E5D8DE0068E380 /* Models */,
 				56E082DD19D5FCB60099A356 /* View Controllers */,
 				56E082DC19D5FCB00099A356 /* Views */,
 				56E0828319D5AE3A0099A356 /* AppDelegate.swift */,
@@ -306,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				56E082E219D600DE0099A356 /* TweetCellView.swift */,
+				56C103AD19E5D7320068E380 /* SidebarMenuItemCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -320,6 +351,9 @@
 				56C27E5D19E0B68700AE1338 /* SidebarViewController.swift */,
 				56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */,
 				56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */,
+				56C103A919E5C89D0068E380 /* TwitterViewController.swift */,
+				5648AAF019E5F42600FF91BB /* MentionsViewController.swift */,
+				5648AAF219E5F43500FF91BB /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -417,6 +451,7 @@
 				56E082D919D5F30B0099A356 /* secrets.xcconfig in Resources */,
 				56E0828919D5AE3A0099A356 /* Main.storyboard in Resources */,
 				56E0828E19D5AE3A0099A356 /* LaunchScreen.xib in Resources */,
+				56C103A819E5B6790068E380 /* FontAwesome.otf in Resources */,
 				56E0828B19D5AE3A0099A356 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,8 +504,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C4514019DAB7E500551220 /* HTKUtils.swift in Sources */,
+				56C103AA19E5C89D0068E380 /* TwitterViewController.swift in Sources */,
+				5648AAF319E5F43500FF91BB /* SettingsViewController.swift in Sources */,
 				56C450AE19DAA29700551220 /* LoginViewController.swift in Sources */,
+				5648AAF119E5F42600FF91BB /* MentionsViewController.swift in Sources */,
 				56C4513419DAB7E500551220 /* GitHubUser.swift in Sources */,
+				56C103B119E5D8F20068E380 /* SidebarMenuItem.swift in Sources */,
+				56C103AE19E5D7320068E380 /* SidebarMenuItemCell.swift in Sources */,
 				56C4513E19DAB7E500551220 /* HTKImageUtils.swift in Sources */,
 				56C4513319DAB7E500551220 /* GitHubResource.swift in Sources */,
 				56C27E5E19E0B68700AE1338 /* SidebarViewController.swift in Sources */,

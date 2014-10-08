@@ -9,6 +9,7 @@ This is a basic Twitter client.
 
 Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of what it looks like:
 
+![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap.gif)
 ![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_screencap_20141006.gif)
 
 ## Download and Build Instructions
@@ -57,16 +58,17 @@ Time spent: 26 hours
 
 ![](https://raw.githubusercontent.com/hacktoolkit/htk-ios-Twitter/master/twitter_redux_screencap.gif)
 
-Time spent: 6 hours
+Time spent: 14 hours
 
-* [wip] Hamburger menu
-  * [wip] Dragging anywhere in the view should reveal the menu.
-  * [wip] The menu should include links to your profile, the home timeline, and the mentions view.
-  * [wip] The menu can look similar to the LinkedIn menu below or feel free to take liberty with the UI.
+* [x] Hamburger menu
+  * [x] Dragging anywhere in the view reveals the menu
+    * [wip] except when a Navigation controller has pushed above the sidebar menu controller, or Tweet details
+  * [x] The menu includes links to the home timeline, profile, mentions view, settings view, and log out
+  * [x] The menu was inspired by the LinkedIn menu
 
-* [wip] Profile page
-  * [wip] Contains the user header view
-  * [wip] Contains a section with the users basic stats: # tweets, # following, # followers
+* [75%] Profile page - getting nil for outlets when using property observer for user and/or `viewDidLoad`
+  * [x] Contains the user header view
+  * [x] Contains a section with the users basic stats: # tweets, # following, # followers
   * [wip] Optional: Implement the paging view for the user description.
   * [wip] Optional: As the paging view moves, increase the opacity of the background screen. See the actual Twitter app for this effect
   * [wip] Optional: Pulling down the profile page should blur and resize the header image.
@@ -79,3 +81,12 @@ Time spent: 6 hours
   * [wip] Tap account to switch to
   * [wip] Include a plus button to Add an Account
   * [wip] Swipe to delete an account
+
+### License
+
+See `LICENSE`
+
+* The Font Awesome font is licensed under the SIL OFL 1.1:
+  * <http://scripts.sil.org/OFL>
+* Font Awesome by Dave Gandy - <http://fontawesome.io>
+  * Full details: <http://fontawesome.io/license>

@@ -23,6 +23,7 @@ PODS:
   - BDBOAuth1Manager (1.4.0):
     - AFNetworking/NSURLConnection (~> 2.4.0)
     - AFNetworking/NSURLSession (~> 2.4.0)
+  - FontAwesome-iOS (0.0.4)
   - HexColors (2.2.1)
   - MBProgressHUD (0.9)
   - PrettyTimestamp (1.1)
@@ -33,6 +34,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BDBOAuth1Manager
+  - FontAwesome-iOS
   - MBProgressHUD (~> 0.5)
   - PrettyTimestamp
   - TSMessages
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   BDBOAuth1Manager: 4f0967110286edd4c7961cf48a4eb242c64137a1
+  FontAwesome-iOS: 0c39b9f5d4687d36cf8958f61295c2b7960a7308
   HexColors: 01384d2bbe8dc4ffa43c3b4135db6e976952d153
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
   PrettyTimestamp: ba24078af51cf06ec741cd9660d8dea25166ae06
