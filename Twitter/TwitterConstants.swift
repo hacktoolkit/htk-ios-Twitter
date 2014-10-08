@@ -8,7 +8,7 @@
 
 import Foundation
 
-let SIDEBAR_MENU_WIDTH = 160
+let SIDEBAR_MENU_WIDTH = 180
 
 // Images
 

@@ -43,7 +43,7 @@ class SidebarViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.contentViewXConstraint.constant = 0
+        hideMenu()
         self.activeViewController = self.viewControllers["Profile"]
     }
 
@@ -51,9 +51,17 @@ class SidebarViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func didTapSidebarButton(sender: UIButton) {
+
+    func showMenu() {
+        self.contentViewXConstraint.constant = -CGFloat(SIDEBAR_MENU_WIDTH)
+    }
+
+    func hideMenu() {
         self.contentViewXConstraint.constant = 0
+    }
+
+    @IBAction func didTapSidebarButton(sender: UIButton) {
+        hideMenu()
         if sender == homeButton {
            NSLog("Home Button")
             self.activeViewController = self.viewControllers["Nav"]
@@ -65,7 +73,7 @@ class SidebarViewController: UIViewController {
 
     @IBAction func didSwipeOverContentView(sender: UISwipeGestureRecognizer) {
         if sender.state == .Ended {
-            self.contentViewXConstraint.constant = -CGFloat(SIDEBAR_MENU_WIDTH)
+            showMenu()
         }
     }
 
