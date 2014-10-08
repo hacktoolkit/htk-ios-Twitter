@@ -103,7 +103,15 @@ class SidebarViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     private func activateViewControllerForKey(key: String) {
-        self.activeViewController = self.viewControllers[key]!
+        if key == "Logout" {
+            TwitterUser.currentUser!.logout()
+        } else {
+            var vc = self.viewControllers[key]!
+            if key == "Profile" {
+                (vc as ProfileViewController).user = TwitterUser.currentUser!
+            }
+            self.activeViewController = vc
+        }
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

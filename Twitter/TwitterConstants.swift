@@ -46,12 +46,18 @@ let MENU_ITEMS_SETTINGS: [[String:String]] = [
         "name" : "Mentions",
         "icon" : NSString.awesomeIcon(FaCommentO),
         "key" : "Mentions",
-        "viewController" : "ProfileViewController",
+        "viewController" : "MentionsViewController",
     ],
     [
         "name" : "Settings",
         "icon" : NSString.awesomeIcon(FaCog),
         "key" : "Settings",
-        "viewController" : "ProfileViewController",
+        "viewController" : "SettingsViewController",
     ],
+    [
+        "name" : "Log Out",
+        "icon" : NSString.awesomeIcon(FaSignOut),
+        "key" : "Logout",
+        "viewController" : "SettingsViewController",
+    ]
 ]

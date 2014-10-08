@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5648AAF119E5F42600FF91BB /* MentionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648AAF019E5F42600FF91BB /* MentionsViewController.swift */; };
+		5648AAF319E5F43500FF91BB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5648AAF219E5F43500FF91BB /* SettingsViewController.swift */; };
 		56C1039B19E4ED1B0068E380 /* TwitterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */; };
 		56C1039D19E4F0200068E380 /* TwitterConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C1039C19E4F0200068E380 /* TwitterConstants.swift */; };
 		56C103A819E5B6790068E380 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 56C103A319E5B6790068E380 /* FontAwesome.otf */; };
@@ -59,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		2533AC282C45176BB13A0F94 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5648AAF019E5F42600FF91BB /* MentionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MentionsViewController.swift; path = viewControllers/MentionsViewController.swift; sourceTree = "<group>"; };
+		5648AAF219E5F43500FF91BB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = viewControllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwitterNavigationController.swift; path = viewControllers/TwitterNavigationController.swift; sourceTree = "<group>"; };
 		56C1039C19E4F0200068E380 /* TwitterConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterConstants.swift; sourceTree = "<group>"; };
 		56C103A319E5B6790068E380 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = fonts/FontAwesome.otf; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 				56C27E5F19E0B6E400AE1338 /* ProfileViewController.swift */,
 				56C1039A19E4ED1B0068E380 /* TwitterNavigationController.swift */,
 				56C103A919E5C89D0068E380 /* TwitterViewController.swift */,
+				5648AAF019E5F42600FF91BB /* MentionsViewController.swift */,
+				5648AAF219E5F43500FF91BB /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -499,7 +505,9 @@
 			files = (
 				56C4514019DAB7E500551220 /* HTKUtils.swift in Sources */,
 				56C103AA19E5C89D0068E380 /* TwitterViewController.swift in Sources */,
+				5648AAF319E5F43500FF91BB /* SettingsViewController.swift in Sources */,
 				56C450AE19DAA29700551220 /* LoginViewController.swift in Sources */,
+				5648AAF119E5F42600FF91BB /* MentionsViewController.swift in Sources */,
 				56C4513419DAB7E500551220 /* GitHubUser.swift in Sources */,
 				56C103B119E5D8F20068E380 /* SidebarMenuItem.swift in Sources */,
 				56C103AE19E5D7320068E380 /* SidebarMenuItemCell.swift in Sources */,

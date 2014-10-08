@@ -10,17 +10,38 @@ import UIKit
 
 class ProfileViewController: TwitterViewController {
 
+    @IBOutlet weak private var userHeadingView: UIView!
+    @IBOutlet weak private var userProfileImageView: UIImageView!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var userScreenameLabel: UILabel!
+
+    @IBOutlet weak private var numTweetsLabel: UILabel!
+    @IBOutlet weak private var numFollowingLabel: UILabel!
+    @IBOutlet weak private var numFollowersLabel: UILabel!
+
+    var user: TwitterUser!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        self.renderUserProfile()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    private func renderUserProfile() {
+        HTKImageUtils.sharedInstance.displayImageUrl(user.profileImageUrl!, imageView: self.userProfileImageView)
+        self.userNameLabel.text = user.name!
+        self.userScreenameLabel.text = "@\(user.screenname)"
+        self.numTweetsLabel.text = "\(user.numTweets!)"
+        self.numFollowingLabel.text = "\(user.friendsCount!)"
+        self.numFollowersLabel.text = "\(user.followersCount!)"
+
+    }
 
     /*
     // MARK: - Navigation
